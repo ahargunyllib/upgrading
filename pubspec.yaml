@@ -1,4 +1,4 @@
-name: Upgrading
+name: upgrading
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -14,6 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_form_builder: ^9.1.1
+  font_awesome_flutter: ^10.6.0
   google_fonts: ^6.1.0
   http: ^1.1.2
   provider: ^6.1.1
