@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../widgets/text_form_widget.dart';
+
 class RegisterPage extends StatelessWidget {
   static const routeName = "/register";
 
@@ -78,94 +80,24 @@ class RegisterPage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: Column(
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: const Color(0xFFAAC0CD),
-                                ),
-                              ),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: 'Email',
-                                  hintStyle: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: const Color(0xFF9E9E9E),
-                                  ),
-                                  contentPadding:
-                                      const EdgeInsets.only(left: 16),
-                                ),
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xFF0A0A0A)),
-                                ),
-                              ),
+                            const TextFormWidget(
+                                hintText: "Email",
+                                autoCorrect: true,
+                                enableSuggestions: true,
+                                obscureText: false),
+                            const SizedBox(height: 16),
+                            const TextFormWidget(
+                              hintText: "Password (8 or more characters)",
+                              autoCorrect: false,
+                              enableSuggestions: false,
+                              obscureText: true,
                             ),
                             const SizedBox(height: 16),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: const Color(0xFFAAC0CD),
-                                ),
-                              ),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: 'Password (8 or more characters)',
-                                  hintStyle: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: const Color(0xFF9E9E9E),
-                                  ),
-                                  contentPadding:
-                                      const EdgeInsets.only(left: 16),
-                                ),
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xFF0A0A0A)),
-                                ),
-                                obscureText: true,
-                                enableSuggestions: false,
-                                autocorrect: false,
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: const Color(0xFFAAC0CD),
-                                ),
-                              ),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: 'Confirm Password',
-                                  hintStyle: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: const Color(0xFF9E9E9E),
-                                  ),
-                                  contentPadding:
-                                      const EdgeInsets.only(left: 16),
-                                ),
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xFF0A0A0A)),
-                                ),
-                                obscureText: true,
-                                enableSuggestions: false,
-                                autocorrect: false,
-                              ),
+                            const TextFormWidget(
+                              hintText: "Confirm Password",
+                              autoCorrect: false,
+                              enableSuggestions: false,
+                              obscureText: true,
                             ),
                             const SizedBox(height: 16),
                             Center(
