@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: "Upgrading",
       theme: appTheme(),
-      initialRoute: LoginPage.routeName,
+      initialRoute: RegisterPage.routeName,
       routes: {
         RegisterPage.routeName: (context) => const RegisterPage(),
         LoginPage.routeName: (context) => const LoginPage(),
