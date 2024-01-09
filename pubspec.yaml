@@ -1,0 +1,28 @@
+name: upgrading
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  cloud_firestore: ^4.14.0
+  firebase_auth: ^4.16.0
+  firebase_core: ^2.24.2
+  firebase_messaging: ^14.7.10
+  flutter:
+    sdk: flutter
+  flutter_form_builder: ^9.1.1
+  google_fonts: ^6.1.0
+  http: ^1.1.2
+  provider: ^6.1.1
+  video_player: ^2.8.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
