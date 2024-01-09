@@ -1,26 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ThemeData appTheme() {
   return ThemeData(
     primaryColor: const Color(0xFF00416A),
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(
-          fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.black),
-      bodyMedium: TextStyle(
-          fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.black),
-      bodySmall: TextStyle(fontSize: 14.0, color: Colors.black),
-      displayLarge: TextStyle(fontSize: 12.0, color: Colors.grey),
-      displayMedium: TextStyle(fontSize: 12.0, color: Colors.grey),
-      displaySmall: TextStyle(fontSize: 12.0, color: Colors.grey),
-      headlineLarge: TextStyle(fontSize: 12.0, color: Colors.grey),
-      headlineMedium: TextStyle(fontSize: 12.0, color: Colors.grey),
-      headlineSmall: TextStyle(fontSize: 12.0, color: Colors.grey),
-      labelLarge: TextStyle(fontSize: 12.0, color: Colors.grey),
-      labelMedium: TextStyle(fontSize: 12.0, color: Colors.grey),
-      labelSmall: TextStyle(fontSize: 12.0, color: Colors.grey),
-      titleLarge: TextStyle(fontSize: 12.0, color: Colors.grey),
-      titleMedium: TextStyle(fontSize: 12.0, color: Colors.grey),
-      titleSmall: TextStyle(fontSize: 12.0, color: Colors.grey),
+    scaffoldBackgroundColor: const Color(0xFF00416A),
+    hoverColor: const Color(0xFF003658),
+    
+    textTheme: TextTheme(
+      bodyLarge: GoogleFonts.poppins(
+          fontSize: 22.0,
+          fontWeight: FontWeight.bold,
+          color: const Color(0xFF00416A)),
+      bodyMedium: GoogleFonts.poppins(
+          fontSize: 18.0,
+          fontWeight: FontWeight.bold,
+          color: const Color(0xFF00416A)),
+      bodySmall:
+          GoogleFonts.poppins(fontSize: 14.0, color: const Color(0xFF00416A)),
+      displayLarge:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      displayMedium:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      displaySmall:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      headlineLarge:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      headlineMedium:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      headlineSmall:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      labelLarge:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      labelMedium:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      labelSmall:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      titleLarge:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      titleMedium:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
+      titleSmall:
+          GoogleFonts.poppins(fontSize: 12.0, color: const Color(0xFF00416A)),
     ),
     buttonTheme: ButtonThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -34,7 +55,7 @@ ThemeData appTheme() {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: Color(0xFF00416A)),
+        borderSide: const BorderSide(color: Color(0xFF002035)),
       ),
     ),
     checkboxTheme: CheckboxThemeData(
