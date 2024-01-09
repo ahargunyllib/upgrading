@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'themes/app_theme.dart';
 import 'views/register_page.dart';
+import 'views/login_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -13,9 +15,11 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Upgrading",
-      initialRoute: RegisterPage.routeName,
+      theme: appTheme(),
+      initialRoute: LoginPage.routeName,
       routes: {
         RegisterPage.routeName: (context) => const RegisterPage(),
+        LoginPage.routeName: (context) => const LoginPage(),
       },
     );
   }
