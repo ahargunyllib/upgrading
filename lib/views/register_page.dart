@@ -224,7 +224,10 @@ class RegisterPage extends StatelessWidget {
                                               fontSize: 14,
                                               fontWeight: FontWeight.w700),
                                         ),
-                                        onTap: () {}),
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, "/login");
+                                        }),
                                   ]),
                             ),
                             const SizedBox(height: 69),
