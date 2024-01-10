@@ -17,14 +17,13 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    // final size = MediaQuery.of(context).size;
 
-    const List<Widget> _pages = <Widget>[
+    const List<Widget> pages = <Widget>[
       HomePage(),
       SearchPage(),
       CommunityPage(),
@@ -91,7 +90,7 @@ class _MainPageState extends State<MainPage> {
         ),
         body: IndexedStack(
           index: _selectedIndex,
-          children: _pages,
+          children: pages,
         ));
   }
 
