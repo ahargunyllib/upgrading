@@ -12,7 +12,7 @@ class CommunityPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("../assets/images/coming-soon-icon.png"),
+          Image.asset("assets/images/coming-soon-icon.png"),
           const SizedBox(height: 12),
           Text("COMING",
               style: GoogleFonts.poppins(

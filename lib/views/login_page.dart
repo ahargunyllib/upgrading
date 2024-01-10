@@ -1,13 +1,29 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:upgrading/services/auth_service.dart';
+import 'package:upgrading/services/database_service.dart';
 
-import '../widgets/text_form_widget.dart';
+import '../core/helper.dart';
+import '../widgets/custom_snack_bar.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   static const routeName = "/login";
 
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool _isLoading = false;
+  final formKey = GlobalKey<FormState>();
+  String email = "";
+  String password = "";
+  AuthService authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -15,26 +31,29 @@ class LoginPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: theme.primaryColor,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              const SizedBox(height: 77),
-              _buildWelcomeTexts(),
-              const SizedBox(height: 48),
-              _buildForm(size, theme, context),
-            ],
-          ),
-        ),
-      ),
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator(color: Colors.white))
+          : SafeArea(
+              child: Form(
+                key: formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    _buildWelcomeTexts(),
+                    _buildForm(size, theme, context),
+                  ],
+                ),
+              ),
+            ),
     );
   }
 
   Widget _buildWelcomeTexts() {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0),
+      padding: const EdgeInsets.only(left: 16.0, top: 77.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -98,10 +117,9 @@ class LoginPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               children: [
-                _buildTextFormWidget("Email", true, true, false),
+                _buildEmailFormWidget(),
                 const SizedBox(height: 16),
-                _buildTextFormWidget(
-                    "Password", false, false, true),
+                _buildPasswordFormWidget(),
                 const SizedBox(height: 16),
                 _buildForgotPasswordButton(theme),
                 const SizedBox(height: 16),
@@ -121,13 +139,88 @@ class LoginPage extends StatelessWidget {
     ]);
   }
 
-  Widget _buildTextFormWidget(String hintText, bool autoCorrect,
-      bool enableSuggestions, bool obscureText) {
-    return TextFormWidget(
-        hintText: hintText,
-        autoCorrect: autoCorrect,
-        enableSuggestions: enableSuggestions,
-        obscureText: obscureText);
+  Widget _buildEmailFormWidget() {
+    return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: const Color(0xFFAAC0CD),
+          ),
+        ),
+        child: TextFormField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: "Email",
+              hintStyle: GoogleFonts.poppins(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: const Color(0xFF9E9E9E),
+              ),
+              contentPadding: const EdgeInsets.only(left: 16),
+            ),
+            style: GoogleFonts.poppins(
+              textStyle: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF0A0A0A)),
+            ),
+            obscureText: false,
+            enableSuggestions: true,
+            autocorrect: true,
+            onChanged: (val) {
+              setState(() {
+                email = val;
+              });
+            },
+            validator: (val) {
+              return RegExp(
+                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                      .hasMatch(val!)
+                  ? null
+                  : "Please enter a valid email";
+            }));
+  }
+
+  Widget _buildPasswordFormWidget() {
+    return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: const Color(0xFFAAC0CD),
+          ),
+        ),
+        child: TextFormField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: "Password",
+              hintStyle: GoogleFonts.poppins(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: const Color(0xFF9E9E9E),
+              ),
+              contentPadding: const EdgeInsets.only(left: 16),
+            ),
+            style: GoogleFonts.poppins(
+              textStyle: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF0A0A0A)),
+            ),
+            obscureText: true,
+            enableSuggestions: false,
+            autocorrect: false,
+            onChanged: (val) {
+              setState(() {
+                password = val;
+              });
+            },
+            validator: (val) {
+              if (val!.length < 6) {
+                return "Password must be at least 6 characters";
+              } else {
+                return null;
+              }
+            }));
   }
 
   Widget _buildLogInButton(ThemeData theme) {
@@ -135,7 +228,9 @@ class LoginPage extends StatelessWidget {
       width: double.infinity,
       height: 46,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          login();
+        },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           backgroundColor: theme.primaryColor,
@@ -170,7 +265,9 @@ class LoginPage extends StatelessWidget {
       width: double.infinity,
       height: 46,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          loginWithGoogle();
+        },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           backgroundColor: Colors.white,
@@ -181,7 +278,7 @@ class LoginPage extends StatelessWidget {
             FaIcon(FontAwesomeIcons.google, color: theme.primaryColor),
             const SizedBox(width: 8),
             Text(
-              "Sign Up with Google",
+              "Log In with Google",
               style: GoogleFonts.poppins(
                 color: theme.primaryColor,
                 fontSize: 16,
@@ -224,7 +321,7 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
-  
+
   _buildForgotPasswordButton(ThemeData theme) {
     return Align(
       alignment: Alignment.centerRight,
@@ -240,5 +337,49 @@ class LoginPage extends StatelessWidget {
         onTap: () {},
       ),
     );
+  }
+
+  login() async {
+    if (formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+      });
+      await authService.logIn(email, password).then((value) async {
+        if (value == true) {
+          QuerySnapshot snapshot =
+              await DatabaseService(uid: FirebaseAuth.instance.currentUser!.uid)
+                  .gettingUserData(email);
+          await Helper.saveUserLoggedInStatus(true);
+          await Helper.saveUserEmail(email);
+          await Helper.saveUserName(snapshot.docs[0]['fullName']);
+          // ignore: use_build_context_synchronously
+          Navigator.pushReplacementNamed(context, "/main");
+        } else {
+          showSnackBar(context, Colors.red, value.toString());
+          setState(() => _isLoading = false);
+        }
+      });
+    }
+  }
+
+  loginWithGoogle() async {
+    setState(() {
+      _isLoading = true;
+    });
+    await authService.logInWithGoogle().then((value) async {
+      if (value == true) {
+        User user = FirebaseAuth.instance.currentUser!;
+        QuerySnapshot snapshot =
+            await DatabaseService(uid: user.uid).gettingUserData(user.email!);
+        await Helper.saveUserLoggedInStatus(true);
+        await Helper.saveUserEmail(user.email!);
+        await Helper.saveUserName(snapshot.docs[0]['fullName']);
+        // ignore: use_build_context_synchronously
+        Navigator.pushReplacementNamed(context, "/main");
+      } else {
+        showSnackBar(context, Colors.red, value.toString());
+        setState(() => _isLoading = false);
+      }
+    });
   }
 }
