@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 ThemeData appTheme() {
   return ThemeData(
     primaryColor: const Color(0xFF00416A),
-    scaffoldBackgroundColor: const Color(0xFF00416A),
     hoverColor: const Color(0xFF003658),
+    focusColor: const Color(0xFF9E9E9E),
     
     textTheme: TextTheme(
       bodyLarge: GoogleFonts.poppins(
@@ -47,7 +47,7 @@ ThemeData appTheme() {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       buttonColor: const Color(0xFF00416A),
       textTheme: ButtonTextTheme.primary,
-    ),
+    ),  
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
