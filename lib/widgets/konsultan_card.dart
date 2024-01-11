@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:upgrading/views/profil_konsultan_page.dart';
 
 class KonsultanCard extends StatelessWidget {
   const KonsultanCard({super.key});
@@ -103,7 +104,9 @@ class KonsultanCard extends StatelessWidget {
               width: 140,
               height: 30,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, ProfilKonsultanPage.routeName);
+                },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
