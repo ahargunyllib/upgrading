@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
     ];
 
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFF5F5F5),
         bottomNavigationBar: Theme(
           data: ThemeData(
             splashColor: Colors.transparent,
@@ -45,44 +45,32 @@ class _MainPageState extends State<MainPage> {
             selectedIconTheme: IconThemeData(color: theme.primaryColor),
             selectedItemColor: theme.primaryColor,
             selectedLabelStyle: GoogleFonts.poppins(
-                color: theme.primaryColor,
-                fontWeight: FontWeight.w400),
-            selectedFontSize: 10,          
+                color: theme.primaryColor, fontWeight: FontWeight.w400),
+            selectedFontSize: 10,
             unselectedIconTheme: IconThemeData(color: theme.focusColor),
             unselectedItemColor: theme.focusColor,
             unselectedLabelStyle: GoogleFonts.poppins(
-                color: theme.primaryColor,
-                fontWeight: FontWeight.w400),
+                color: theme.primaryColor, fontWeight: FontWeight.w400),
             unselectedFontSize: 10,
             items: const [
               BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home_outlined
-                ),
+                icon: Icon(Icons.home_outlined),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.search
-                ),
+                icon: Icon(Icons.search),
                 label: 'Search',
               ),
               BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.people_outline
-                ),
+                icon: Icon(Icons.people_outline),
                 label: 'Community',
               ),
               BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home_outlined
-                ),
+                icon: Icon(Icons.home_outlined),
                 label: 'Upgrading',
               ),
               BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person_2_outlined
-                ),
+                icon: Icon(Icons.person_2_outlined),
                 label: 'Profile',
               ),
             ],
