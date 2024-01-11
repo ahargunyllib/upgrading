@@ -46,6 +46,12 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
+                        Center(
+                          child: Padding(
+                              padding: const EdgeInsets.only(top: 16.0),
+                              child:
+                                  Image.asset("assets/images/logo-icon.png")),
+                        ),
                         const SizedBox(height: 77),
                         _buildWelcomeTexts(),
                         const SizedBox(height: 48),
@@ -73,17 +79,8 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
           ),
-          const SizedBox(height: 16),
-          Text(
-            'Upgrading',
-            style: GoogleFonts.poppins(
-              textStyle: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-              ),
-            ),
-          ),
+          const SizedBox(height: 8),
+          Image.asset("assets/images/logo-text.png"),
           const SizedBox(height: 8),
           Text(
             'Let\'s create an account first!',

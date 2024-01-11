@@ -36,15 +36,23 @@ class _LoginPageState extends State<LoginPage> {
       body: _isLoading
           ? const Center(child: CircularProgressIndicator(color: Colors.white))
           : SafeArea(
-              child: Form(
-                key: formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    _buildWelcomeTexts(),
-                    _buildForm(size, theme, context),
-                  ],
+              child: SingleChildScrollView(
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Center(
+                        child: Padding(
+                            padding: const EdgeInsets.only(top: 16.0),
+                            child: Image.asset("assets/images/logo-icon.png")),
+                      ),
+                      _buildWelcomeTexts(),
+                      const SizedBox(height: 48),
+                      _buildForm(size, theme, context),
+                    ],
+                  ),
                 ),
               ),
             ),
