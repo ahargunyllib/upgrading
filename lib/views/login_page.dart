@@ -66,18 +66,7 @@ class _LoginPageState extends State<LoginPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            'Welcome to',
-            style: GoogleFonts.poppins(
-              textStyle: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            'Upgrading',
+            'Welcome back to',
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
                 fontSize: 24,
@@ -87,12 +76,14 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           const SizedBox(height: 8),
+          Image.asset("assets/images/logo-text.png"),
+          const SizedBox(height: 8),
           Text(
-            'Let\'s create an account first!',
+            'Silakan masukkan Email dan Password Anda',
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
                 color: Colors.white,
               ),
             ),

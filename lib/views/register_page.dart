@@ -83,11 +83,11 @@ class _RegisterPageState extends State<RegisterPage> {
           Image.asset("assets/images/logo-text.png"),
           const SizedBox(height: 8),
           Text(
-            'Let\'s create an account first!',
+            'Pertama, mari buat akun Anda!',
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
                 color: Colors.white,
               ),
             ),
