@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'konsultasi_page.dart';
+import 'premium_payment_page.dart';
 import 'video_persiapan_page.dart';
 
 class UpgradingPage extends StatelessWidget {
@@ -21,6 +22,9 @@ class UpgradingPage extends StatelessWidget {
             break;
           case KonsultasiPage.routeName:
             builder = (BuildContext context) => const KonsultasiPage();
+            break;
+          case PremiumPaymentPage.routeName:
+            builder = (BuildContext context) => const PremiumPaymentPage();
             break;
           default:
             throw Exception('Invalid route: ${settings.name}');
@@ -50,6 +54,7 @@ class UpgradingMainWidget extends StatelessWidget {
               title: const Text("Video Persiapan"),
               subtitle: const Text(
                   "Akses konten video berisi persiapan beasiswa atau organisasi yang Anda inginkan"),
+              contentPadding: const EdgeInsets.all(16),
               onTap: () {
                 Navigator.of(context).pushNamed(VideoPersiapanPage.routeName);
               },
@@ -60,6 +65,7 @@ class UpgradingMainWidget extends StatelessWidget {
               title: const Text("Konsultasi"),
               subtitle: const Text(
                   "Konsultasi dengan penerima beasiswa atau anggota organisasi yang Anda inginkan"),
+              contentPadding: const EdgeInsets.all(16),
               onTap: () {
                 Navigator.of(context).pushNamed(KonsultasiPage.routeName);
               },

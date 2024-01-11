@@ -1,25 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'premium_payment_page.dart';
+
 class VideoPersiapanPage extends StatelessWidget {
   static const routeName = "/video-persiapan";
   const VideoPersiapanPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-    return Navigator(
-        key: navigatorKey,
-        onGenerateRoute: (RouteSettings settings) {
-          return MaterialPageRoute(builder: (context) {
-            switch (settings.name) {
-              case '/':
-                return const VideoPersiapanMainWidget();
-              default:
-                throw Exception('Invalid route: ${settings.name}');
-            }
-          });
-        });
+    return const VideoPersiapanMainWidget();
   }
 }
 
@@ -125,7 +115,10 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                           width: double.infinity,
                           height: 38,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, PremiumPaymentPage.routeName);
+                            },
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8)),
@@ -155,13 +148,7 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  // Pop from the nested navigator
-                  if (Navigator.of(context).canPop()) {
-                    Navigator.of(context).pop();
-                  } else {
-                    // Pop from the parent navigator (UpgradingPage's Navigator)
-                    Navigator.of(context, rootNavigator: true).pop();
-                  }
+                  Navigator.pop(context);
                 },
               ),
             ],
