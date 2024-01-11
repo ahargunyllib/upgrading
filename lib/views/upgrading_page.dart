@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'konsultasi_page.dart';
 import 'premium_payment_page.dart';
 import 'video_persiapan_page.dart';
+import 'profil_konsultan_page.dart';
+import 'session_payment_page.dart';
 
 class UpgradingPage extends StatelessWidget {
   static const routeName = "/upgrading";
@@ -25,6 +27,12 @@ class UpgradingPage extends StatelessWidget {
             break;
           case PremiumPaymentPage.routeName:
             builder = (BuildContext context) => const PremiumPaymentPage();
+            break;
+          case ProfilKonsultanPage.routeName:
+            builder = (BuildContext context) => const ProfilKonsultanPage();
+            break;
+          case SessionPaymentPage.routeName:
+            builder = (BuildContext context) => const SessionPaymentPage();
             break;
           default:
             throw Exception('Invalid route: ${settings.name}');
