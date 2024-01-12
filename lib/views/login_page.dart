@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:upgrading/services/auth_service.dart';
-import 'package:upgrading/services/database_service.dart';
+import 'package:upgrading/services/user_service.dart';
 
 import '../core/helper.dart';
 import '../widgets/custom_snack_bar.dart';
@@ -346,7 +346,7 @@ class _LoginPageState extends State<LoginPage> {
       await authService.logIn(email, password).then((value) async {
         if (value == true) {
           QuerySnapshot snapshot =
-              await DatabaseService(uid: FirebaseAuth.instance.currentUser!.uid)
+              await UserService(uid: FirebaseAuth.instance.currentUser!.uid)
                   .gettingUserData(email);
           await Helper.saveUserLoggedInStatus(true);
           await Helper.saveUserEmail(email);
@@ -369,7 +369,7 @@ class _LoginPageState extends State<LoginPage> {
       if (value == true) {
         User user = FirebaseAuth.instance.currentUser!;
         QuerySnapshot snapshot =
-            await DatabaseService(uid: user.uid).gettingUserData(user.email!);
+            await UserService(uid: user.uid).gettingUserData(user.email!);
         await Helper.saveUserLoggedInStatus(true);
         await Helper.saveUserEmail(user.email!);
         await Helper.saveUserName(snapshot.docs[0]['fullName']);

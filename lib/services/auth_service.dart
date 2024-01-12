@@ -2,7 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:upgrading/services/database_service.dart';
+import 'package:upgrading/services/user_service.dart';
 
 import '../core/helper.dart';
 
@@ -25,7 +25,7 @@ class AuthService {
       User user =
           (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
       if (user != null) {
-        await DatabaseService(uid: user.uid)
+        await UserService(uid: user.uid)
             .savingUserData(user.displayName!, user.email!);
         return true;
       }
@@ -69,7 +69,7 @@ class AuthService {
           .user!;
 
       if (user != null) {
-        await DatabaseService(uid: user.uid).savingUserData(fullName, email);
+        await UserService(uid: user.uid).savingUserData(fullName, email);
         return true;
       }
     } on FirebaseAuthException catch (e) {
@@ -92,7 +92,7 @@ class AuthService {
       await Helper.saveUserName("");
       await firebaseAuth.signOut();
     } catch (e) {
-      return null;
+      return;
     }
     return await firebaseAuth.signOut();
   }

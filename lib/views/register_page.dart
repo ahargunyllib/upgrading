@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../core/helper.dart';
 import '../services/auth_service.dart';
-import '../services/database_service.dart';
+import '../services/user_service.dart';
 import '../widgets/custom_snack_bar.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -469,7 +469,7 @@ class _RegisterPageState extends State<RegisterPage> {
       if (value == true) {
         User user = FirebaseAuth.instance.currentUser!;
         QuerySnapshot snapshot =
-            await DatabaseService(uid: user.uid).gettingUserData(user.email!);
+            await UserService(uid: user.uid).gettingUserData(user.email!);
         await Helper.saveUserLoggedInStatus(true);
         await Helper.saveUserEmail(user.email!);
         await Helper.saveUserName(snapshot.docs[0]['fullName']);
