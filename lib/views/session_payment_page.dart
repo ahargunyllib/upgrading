@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:upgrading/views/success_session_payment_page.dart';
 
 import '../core/constant.dart';
+import '../models/mentor_model.dart';
 
 class SessionPaymentPage extends StatefulWidget {
   static const routeName = "/session-payment";
@@ -12,12 +14,14 @@ class SessionPaymentPage extends StatefulWidget {
 }
 
 class _SessionPaymentPageState extends State<SessionPaymentPage> {
-  int sessionCounts = 0;
+  int sessionCounts = 1;
   PaymentMethods? paymentMethod = PaymentMethods.mandiriVA;
 
   @override
   Widget build(BuildContext context) {
+    final Mentor mentor = ModalRoute.of(context)!.settings.arguments as Mentor;
     final theme = Theme.of(context);
+
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
@@ -104,8 +108,9 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                                   IconButton(
                                       onPressed: () {
                                         setState(() {
-                                          if (sessionCounts != 0)
+                                          if (sessionCounts != 1) {
                                             sessionCounts--;
+                                          }
                                         });
                                       },
                                       icon: const Icon(Icons.remove,
@@ -162,7 +167,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                                 fontWeight: FontWeight.w400),
                           ),
                           Text(
-                            'Rp. xx.xxx',
+                            'Rp. ${mentor.biaya}',
                             style: GoogleFonts.poppins(
                                 color: Colors.white,
                                 fontSize: 12,
@@ -472,7 +477,13 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                         borderRadius: BorderRadius.circular(8)),
                     backgroundColor: theme.primaryColor,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushNamed(SuccessSessionPaymentPage.routeName, arguments: <String, dynamic> {
+                          'mentor': mentor,
+                          'sessionCounts': sessionCounts
+                        });
+                  },
                   child: Text("Bayar",
                       style: GoogleFonts.poppins(
                           color: Colors.white,

@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/views/profil_konsultan_page.dart';
 
+import '../models/mentor_model.dart';
+
 class KonsultanCard extends StatelessWidget {
-  const KonsultanCard({super.key});
+  final Mentor mentor;
+  const KonsultanCard({super.key, required this.mentor});
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +29,31 @@ class KonsultanCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
-                child: Image.asset(
-              "assets/images/dummy-mentor-icon.png",
-              fit: BoxFit.fill,
-            )),
+            FutureBuilder(
+              future: mentor.profileUrl,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return CircleAvatar(
+                      child: Image.network(
+                    snapshot.data!,
+                    fit: BoxFit.fill,
+                    width: 50,
+                    height: 50,
+                  ));
+                } else if (snapshot.connectionState ==
+                    ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  return const Center(
+                    child: Text("error"),
+                  );
+                }
+              },
+            ),
             const SizedBox(height: 4),
-            Text("Muhammad Benzema",
+            Text(mentor.fullName,
                 style: GoogleFonts.poppins(
                     color: theme.primaryColor,
                     fontSize: 12,
@@ -69,9 +90,22 @@ class KonsultanCard extends StatelessWidget {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(3),
-                      child: Image.asset(
-                        "assets/images/dummy-beasiswa-icon.png",
-                        fit: BoxFit.fill,
+                      child: FutureBuilder(
+                        future: mentor.beasiswa.beasiswaLogo,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return Image.network(
+                              snapshot.data!,
+                              fit: BoxFit.fill,
+                              width: 22,
+                              height: 22,
+                            );
+                          } else {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        },
                       ),
                     )),
                 const SizedBox(width: 8),
@@ -79,12 +113,12 @@ class KonsultanCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Beasiswa Umum S1 Dalam Negeri (BU.01)",
+                    Text(mentor.beasiswa.nama,
                         style: GoogleFonts.poppins(
                             fontSize: 10,
                             color: theme.primaryColor,
                             fontWeight: FontWeight.w700)),
-                    Text("Kementerian Agama X LPDP",
+                    Text(mentor.beasiswa.penyelenggara,
                         style: GoogleFonts.poppins(
                             fontSize: 10,
                             color: theme.primaryColor,
@@ -94,7 +128,7 @@ class KonsultanCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 8),
-            Text("Rp. xx.xxx",
+            Text("Rp. ${mentor.biaya}",
                 style: GoogleFonts.poppins(
                     color: theme.primaryColor,
                     fontSize: 12,
@@ -105,7 +139,7 @@ class KonsultanCard extends StatelessWidget {
               height: 30,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, ProfilKonsultanPage.routeName);
+                  Navigator.pushNamed(context, ProfilKonsultanPage.routeName, arguments: mentor);
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

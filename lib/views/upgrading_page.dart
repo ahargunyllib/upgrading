@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:upgrading/views/coming_soon_page.dart';
+import 'package:upgrading/views/success_session_payment_page.dart';
 
+import 'chat_page.dart';
 import 'konsultasi_page.dart';
 import 'premium_payment_page.dart';
 import 'video_persiapan_page.dart';
@@ -33,6 +36,16 @@ class UpgradingPage extends StatelessWidget {
             break;
           case SessionPaymentPage.routeName:
             builder = (BuildContext context) => const SessionPaymentPage();
+            break;
+          case SuccessSessionPaymentPage.routeName:
+            builder =
+                (BuildContext context) => const SuccessSessionPaymentPage();
+            break;
+          case ComingSoonPage.routeName:
+            builder = (BuildContext context) => const ComingSoonPage();
+            break;
+          case ChatPage.routeName:
+            builder = (BuildContext context) => const ChatPage();
             break;
           default:
             throw Exception('Invalid route: ${settings.name}');
