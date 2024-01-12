@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/views/session_payment_page.dart';
 
+import '../models/mentor_model.dart';
+
 class ProfilKonsultanPage extends StatelessWidget {
   static const routeName = "/profil-konsultan";
   const ProfilKonsultanPage({super.key});
@@ -9,6 +11,8 @@ class ProfilKonsultanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final Mentor mentor = ModalRoute.of(context)!.settings.arguments as Mentor;
+
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
@@ -49,15 +53,31 @@ class ProfilKonsultanPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircleAvatar(
-                      child: Image.asset(
-                    "assets/images/dummy-mentor-icon.png",
-                    fit: BoxFit.fill,
-                    width: 100,
-                    height: 100,
-                  )),
+                  FutureBuilder(
+                    future: mentor.profileUrl,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        return CircleAvatar(
+                            child: Image.network(
+                          snapshot.data!,
+                          fit: BoxFit.fill,
+                          width: 50,
+                          height: 50,
+                        ));
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.waiting) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        return const Center(
+                          child: Text("error"),
+                        );
+                      }
+                    },
+                  ),
                   const SizedBox(height: 8),
-                  Text("Muhammad Benzema",
+                  Text(mentor.fullName,
                       style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontSize: 14,
@@ -94,9 +114,22 @@ class ProfilKonsultanPage extends StatelessWidget {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(3),
-                            child: Image.asset(
-                              "assets/images/dummy-beasiswa-icon.png",
-                              fit: BoxFit.fill,
+                            child: FutureBuilder(
+                              future: mentor.beasiswa.beasiswaLogo,
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  return Image.network(
+                                    snapshot.data!,
+                                    fit: BoxFit.fill,
+                                    width: 22,
+                                    height: 22,
+                                  );
+                                } else {
+                                  return const Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                }
+                              },
                             ),
                           )),
                       const SizedBox(width: 8),
@@ -104,12 +137,12 @@ class ProfilKonsultanPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Beasiswa Umum S1 Dalam Negeri (BU.01)",
+                          Text(mentor.beasiswa.nama,
                               style: GoogleFonts.poppins(
                                   fontSize: 10,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700)),
-                          Text("Kementerian Agama X LPDP",
+                          Text(mentor.beasiswa.penyelenggara,
                               style: GoogleFonts.poppins(
                                   fontSize: 10,
                                   color: Colors.white,
@@ -155,8 +188,7 @@ class ProfilKonsultanPage extends StatelessWidget {
                                 ),
                               )),
                           const SizedBox(height: 28),
-                          Text(
-                              "Lorem ipsum dolor sit amet consectetur. Enim sed sit cursus sed turpis morbi enim. Magna turpis eu volutpat nisi. At leo dolor molestie pulvinar dictum lectus lacinia blandit lobortis. Nunc mauris senectus sed nibh est. Erat lorem semper varius pulvinar non congue. Odio semper.",
+                          Text(mentor.deskripsi,
                               softWrap: true,
                               textAlign: TextAlign.justify,
                               style: GoogleFonts.poppins(
@@ -228,9 +260,24 @@ class ProfilKonsultanPage extends StatelessWidget {
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.all(3),
-                                        child: Image.asset(
-                                          "assets/images/dummy-beasiswa-icon.png",
-                                          fit: BoxFit.fill,
+                                        child: FutureBuilder(
+                                          future:
+                                              mentor.pendidikan.universitasLogo,
+                                          builder: (context, snapshot) {
+                                            if (snapshot.hasData) {
+                                              return Image.network(
+                                                snapshot.data!,
+                                                fit: BoxFit.fill,
+                                                width: 24,
+                                                height: 24,
+                                              );
+                                            } else {
+                                              return const Center(
+                                                child:
+                                                    CircularProgressIndicator(),
+                                              );
+                                            }
+                                          },
                                         ),
                                       )),
                                   const SizedBox(width: 8),
@@ -239,13 +286,13 @@ class ProfilKonsultanPage extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text("Universitas Brawijaya",
+                                      Text(mentor.pendidikan.universitas,
                                           style: GoogleFonts.poppins(
                                               color: theme.primaryColor,
                                               fontSize: 10,
                                               fontWeight: FontWeight.w700)),
                                       const SizedBox(height: 4),
-                                      Text("Teknik Komputer",
+                                      Text(mentor.pendidikan.jurusan,
                                           style: GoogleFonts.poppins(
                                               color: theme.primaryColor,
                                               fontSize: 10,
@@ -254,7 +301,7 @@ class ProfilKonsultanPage extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              Text("2020-Sekarang",
+                              Text(mentor.pendidikan.waktu,
                                   style: GoogleFonts.poppins(
                                       color: theme.primaryColor,
                                       fontSize: 10,
@@ -326,9 +373,24 @@ class ProfilKonsultanPage extends StatelessWidget {
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.all(3),
-                                        child: Image.asset(
-                                          "assets/images/dummy-beasiswa-icon.png",
-                                          fit: BoxFit.fill,
+                                        child: FutureBuilder(
+                                          future:
+                                              mentor.pengalaman.universitasLogo,
+                                          builder: (context, snapshot) {
+                                            if (snapshot.hasData) {
+                                              return Image.network(
+                                                snapshot.data!,
+                                                fit: BoxFit.fill,
+                                                width: 24,
+                                                height: 24,
+                                              );
+                                            } else {
+                                              return const Center(
+                                                child:
+                                                    CircularProgressIndicator(),
+                                              );
+                                            }
+                                          },
                                         ),
                                       )),
                                   const SizedBox(width: 8),
@@ -337,13 +399,13 @@ class ProfilKonsultanPage extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text("Presiden EM UB",
+                                      Text(mentor.pengalaman.jabatan,
                                           style: GoogleFonts.poppins(
                                               color: theme.primaryColor,
                                               fontSize: 10,
                                               fontWeight: FontWeight.w700)),
                                       const SizedBox(height: 4),
-                                      Text("Universitas Brawijaya",
+                                      Text(mentor.pengalaman.universitas,
                                           style: GoogleFonts.poppins(
                                               color: theme.primaryColor,
                                               fontSize: 10,
@@ -352,7 +414,7 @@ class ProfilKonsultanPage extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              Text("2020-2023",
+                              Text(mentor.pengalaman.waktu,
                                   style: GoogleFonts.poppins(
                                       color: theme.primaryColor,
                                       fontSize: 10,
@@ -377,7 +439,7 @@ class ProfilKonsultanPage extends StatelessWidget {
                                   fontSize: 12,
                                   color: theme.primaryColor,
                                   fontWeight: FontWeight.w400)),
-                          Text("Rp. xx.xxx / sesi",
+                          Text("Rp. ${mentor.biaya} / sesi",
                               style: GoogleFonts.poppins(
                                   color: theme.primaryColor,
                                   fontSize: 12,
@@ -389,8 +451,9 @@ class ProfilKonsultanPage extends StatelessWidget {
                         height: 30,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed(SessionPaymentPage.routeName);
+                            Navigator.of(context).pushNamed(
+                                SessionPaymentPage.routeName,
+                                arguments: mentor);
                           },
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(

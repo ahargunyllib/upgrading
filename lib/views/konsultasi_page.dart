@@ -189,16 +189,14 @@ class _KonsultasiPageState extends State<KonsultasiPage>
               ]),
           Expanded(
             child: TabBarView(controller: _tabController, children: const [
-              SingleChildScrollView(
-                  child: Padding(
+              Padding(
                 padding: EdgeInsets.all(16),
                 child: ListKonsultanPage(),
-              )),
-              SingleChildScrollView(
-                  child: Padding(
+              ),
+              Padding(
                 padding: EdgeInsets.all(16.0),
                 child: RiwayatKonsultasiPage(),
-              ))
+              )
             ]),
           ),
         ],
