@@ -67,7 +67,6 @@ class AuthService {
       User user = (await firebaseAuth.createUserWithEmailAndPassword(
               email: email, password: password))
           .user!;
-
       if (user != null) {
         await UserService(uid: user.uid).savingUserData(fullName, email);
         return true;
