@@ -40,16 +40,8 @@ class KonsultanCard extends StatelessWidget {
                     width: 50,
                     height: 50,
                   ));
-                } else if (snapshot.connectionState ==
-                    ConnectionState.waiting) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else {
-                  return const Center(
-                    child: Text("error"),
-                  );
                 }
+                return Container();
               },
             ),
             const SizedBox(height: 4),
@@ -93,18 +85,16 @@ class KonsultanCard extends StatelessWidget {
                       child: FutureBuilder(
                         future: mentor.beasiswa.beasiswaLogo,
                         builder: (context, snapshot) {
-                          if (snapshot.hasData) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
                             return Image.network(
                               snapshot.data!,
                               fit: BoxFit.fill,
                               width: 22,
                               height: 22,
                             );
-                          } else {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
                           }
+                          return Container();
                         },
                       ),
                     )),
@@ -139,7 +129,8 @@ class KonsultanCard extends StatelessWidget {
               height: 30,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, ProfilKonsultanPage.routeName, arguments: mentor);
+                  Navigator.pushNamed(context, ProfilKonsultanPage.routeName,
+                      arguments: mentor);
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
