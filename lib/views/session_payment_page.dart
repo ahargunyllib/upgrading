@@ -478,8 +478,9 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                     backgroundColor: theme.primaryColor,
                   ),
                   onPressed: () {
-                    Navigator.of(context)
-                        .pushNamed(SuccessSessionPaymentPage.routeName, arguments: <String, dynamic> {
+                    Navigator.of(context).pushNamed(
+                        SuccessSessionPaymentPage.routeName,
+                        arguments: <String, dynamic>{
                           'mentor': mentor,
                           'sessionCounts': sessionCounts
                         });
