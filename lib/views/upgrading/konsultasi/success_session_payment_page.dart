@@ -64,181 +64,184 @@ class SuccessSessionPaymentPage extends StatelessWidget {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset("assets/images/success-payment-icon.png"),
-              const SizedBox(height: 16),
-              Container(
-                  decoration: ShapeDecoration(
-                    color: theme.primaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/images/success-payment-icon.png"),
+                const SizedBox(height: 16),
+                Container(
+                    decoration: ShapeDecoration(
+                      color: theme.primaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Pembayaran Berhasil",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.poppins(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700)),
-                          const SizedBox(height: 16),
-                          Container(
-                              width: double.infinity,
-                              decoration: const ShapeDecoration(
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    width: 2,
-                                    strokeAlign: BorderSide.strokeAlignCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Pembayaran Berhasil",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
                                     color: Colors.white,
-                                  ),
-                                ),
-                              )),
-                          const SizedBox(height: 16),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                  decoration: ShapeDecoration(
-                                    color: Colors.transparent,
-                                    shape: RoundedRectangleBorder(
-                                      side: const BorderSide(
-                                        width: 1,
-                                        strokeAlign:
-                                            BorderSide.strokeAlignOutside,
-                                        color: Color(0xFFAAC0CD),
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(3),
-                                    child: FutureBuilder(
-                                      future: mentor.beasiswa.beasiswaLogo,
-                                      builder: (context, snapshot) {
-                                        if (snapshot.hasData) {
-                                          return Image.network(
-                                            snapshot.data!,
-                                            fit: BoxFit.fill,
-                                            width: 22,
-                                            height: 22,
-                                          );
-                                        } else {
-                                          return const Center(
-                                            child: CircularProgressIndicator(),
-                                          );
-                                        }
-                                      },
-                                    ),
-                                  )),
-                              const SizedBox(width: 8),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(mentor.beasiswa.nama,
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 10,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w700)),
-                                  Text(mentor.beasiswa.penyelenggara,
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 10,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400)),
-                                ],
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 26),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("$sessionCounts Sesi",
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 10,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700)),
+                            const SizedBox(height: 16),
+                            Container(
+                                width: double.infinity,
+                                decoration: const ShapeDecoration(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                      width: 2,
+                                      strokeAlign: BorderSide.strokeAlignCenter,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w400)),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text("Total",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 10,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400)),
-                                  Text("Rp. ${sessionCounts * mentor.biaya}",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 12,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w700)),
-                                ],
-                              )
-                            ],
-                          ),
-                          const SizedBox(height: 16),
-                          Container(
-                              width: double.infinity,
-                              decoration: const ShapeDecoration(
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    width: 1,
-                                    strokeAlign: BorderSide.strokeAlignCenter,
-                                    color: Colors.white,
+                                    ),
                                   ),
+                                )),
+                            const SizedBox(height: 16),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                    decoration: ShapeDecoration(
+                                      color: Colors.transparent,
+                                      shape: RoundedRectangleBorder(
+                                        side: const BorderSide(
+                                          width: 1,
+                                          strokeAlign:
+                                              BorderSide.strokeAlignOutside,
+                                          color: Color(0xFFAAC0CD),
+                                        ),
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(3),
+                                      child: FutureBuilder(
+                                        future: mentor.beasiswa.beasiswaLogo,
+                                        builder: (context, snapshot) {
+                                          if (snapshot.hasData) {
+                                            return Image.network(
+                                              snapshot.data!,
+                                              fit: BoxFit.fill,
+                                              width: 22,
+                                              height: 22,
+                                            );
+                                          } else {
+                                            return const Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            );
+                                          }
+                                        },
+                                      ),
+                                    )),
+                                const SizedBox(width: 8),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(mentor.beasiswa.nama,
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 10,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w700)),
+                                    Text(mentor.beasiswa.penyelenggara,
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 10,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w400)),
+                                  ],
                                 ),
-                              )),
-                          const SizedBox(height: 16),
-                          Text(
-                              "Silakan membuka halaman \"Daftar Konsultasi\" untuk memulai sesi konsultasi Anda",
-                              textAlign: TextAlign.center,
-                              softWrap: true,
-                              style: GoogleFonts.poppins(
-                                  fontSize: 10,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400)),
-                        ]),
-                  )),
-              const SizedBox(height: 32),
-              SizedBox(
-                width: double.infinity,
-                height: 46,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacementNamed(
-                        ChatPage.routeName,
-                        arguments: mentor);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)),
-                    backgroundColor: theme.primaryColor,
-                  ),
-                  child: Text(
-                    "Konsultasi Sekarang",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
+                              ],
+                            ),
+                            const SizedBox(height: 26),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("$sessionCounts Sesi",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 10,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400)),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Total",
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 10,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w400)),
+                                    Text("Rp. ${sessionCounts * mentor.biaya}",
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 12,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w700)),
+                                  ],
+                                )
+                              ],
+                            ),
+                            const SizedBox(height: 16),
+                            Container(
+                                width: double.infinity,
+                                decoration: const ShapeDecoration(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                      width: 1,
+                                      strokeAlign: BorderSide.strokeAlignCenter,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                )),
+                            const SizedBox(height: 16),
+                            Text(
+                                "Silakan membuka halaman \"Daftar Konsultasi\" untuk memulai sesi konsultasi Anda",
+                                textAlign: TextAlign.center,
+                                softWrap: true,
+                                style: GoogleFonts.poppins(
+                                    fontSize: 10,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400)),
+                          ]),
+                    )),
+                const SizedBox(height: 32),
+                SizedBox(
+                  width: double.infinity,
+                  height: 46,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed(
+                          ChatPage.routeName,
+                          arguments: mentor);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      backgroundColor: theme.primaryColor,
+                    ),
+                    child: Text(
+                      "Konsultasi Sekarang",
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
