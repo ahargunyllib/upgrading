@@ -16,10 +16,15 @@ class MentorService {
     );
   }
 
+  Future<DocumentSnapshot<Object?>> getMentor(String id) {
+    Future<DocumentSnapshot<Map<String, dynamic>>> snapshot =
+        db.collection('mentors').doc(id).get();
+    return snapshot;
+  }
+
   Future<QuerySnapshot<Object?>> getMentors() {
     Future<QuerySnapshot<Map<String, dynamic>>> snapshot =
         db.collection('mentors').get();
-    print(snapshot);
     return snapshot;
   }
 }

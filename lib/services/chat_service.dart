@@ -10,7 +10,7 @@ class ChatService {
     print('sending message');
     final String senderId = firebaseAuth.currentUser!.uid;
     final String senderEmail = firebaseAuth.currentUser!.email.toString();
-    final String createdAt = Timestamp.now().toString();
+    final Timestamp createdAt = Timestamp.now();
 
     Message newMessage = Message(
         message: message,
@@ -29,6 +29,14 @@ class ChatService {
         .collection('messages')
         .add(newMessage.toMap());
     print('message sended');
+
+    await firestore.collection('mentors').doc(receiverId).update({
+      'chats': FieldValue.arrayUnion([chatRoomId])
+    });
+
+    await firestore.collection('users').doc(senderId).update({
+      'chats': FieldValue.arrayUnion([chatRoomId])
+    });
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> getMessages(

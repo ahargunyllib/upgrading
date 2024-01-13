@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Message {
   final String message;
   final String senderId;
   final String senderEmail;
   final String receiverId;
-  final String createdAt;
+  final Timestamp createdAt;
 
   Message({
     required this.message,

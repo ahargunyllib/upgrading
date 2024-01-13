@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../models/mentor_model.dart';
+import '../views/chat_page.dart';
+
 class KonsultanItem extends StatelessWidget {
-  const KonsultanItem({super.key});
+  final Mentor mentor;
+  const KonsultanItem({super.key, required this.mentor});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context)
+            .pushReplacementNamed(ChatPage.routeName, arguments: mentor);
+      },
       borderRadius: BorderRadius.circular(8),
       child: Container(
         decoration: ShapeDecoration(
@@ -30,23 +37,33 @@ class KonsultanItem extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(3),
-                child: CircleAvatar(
-                    child: Image.asset(
-                  "assets/images/dummy-mentor-icon.png",
-                  fit: BoxFit.fill,
-                )),
+                child: FutureBuilder(
+                  future: mentor.profileUrl,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      return CircleAvatar(
+                          child: Image.network(
+                        snapshot.data!,
+                        fit: BoxFit.fill,
+                        width: 50,
+                        height: 50,
+                      ));
+                    }
+                    return Container();
+                  },
+                ),
               ),
               const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Muhammad Benzema",
+                  Text(mentor.fullName,
                       style: GoogleFonts.poppins(
                           color: theme.primaryColor,
                           fontSize: 12,
                           fontWeight: FontWeight.w700)),
-                  Text("Beasiswa Umum S1 Dalam Negeri (BU.01)",
+                  Text(mentor.beasiswa.nama,
                       style: GoogleFonts.poppins(
                           fontSize: 10,
                           color: theme.primaryColor,

@@ -24,4 +24,10 @@ class UserService {
         await userCollection.where("email", isEqualTo: email).get();
     return snapshot;
   }
+
+  Future<QuerySnapshot<Object?>> getAllChatRooms() async {
+    Future<QuerySnapshot<Object?>> snapshot = userCollection.doc(uid).collection("chats").get();
+    print(snapshot);
+    return snapshot;
+  }
 }

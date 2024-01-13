@@ -26,6 +26,7 @@ class _ChatPageState extends State<ChatPage> {
     final Mentor mentor = ModalRoute.of(context)!.settings.arguments! as Mentor;
 
     return Scaffold(
+      bottomNavigationBar: null,
       appBar: AppBar(
         backgroundColor: theme.primaryColor,
         shape: const RoundedRectangleBorder(
