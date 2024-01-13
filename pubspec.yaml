@@ -31,11 +31,11 @@ dev_dependencies:
 
 flutter_launcher_icons:
   android: true
-  image_path: "assets/images/logo-icon.png"
+  image_path: "assets/images/logo-icon-blue.png"
   min_sdk_android: 21 
   web:
     generate: true
-    image_path: "assets/images/logo-icon.png"
+    image_path: "assets/images/logo-icon-blue.png"
 
 flutter:
   uses-material-design: true
