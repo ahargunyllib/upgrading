@@ -14,7 +14,7 @@ class KonsultanItem extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context)
-            .pushReplacementNamed(ChatPage.routeName, arguments: mentor);
+            .pushNamed(ChatPage.routeName, arguments: mentor);
       },
       borderRadius: BorderRadius.circular(8),
       child: Container(
