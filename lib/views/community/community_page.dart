@@ -1,46 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upgrading/views/community_page.dart';
-import 'package:upgrading/views/home_page.dart';
-import 'package:upgrading/views/profile_page.dart';
-import 'package:upgrading/views/search_page.dart';
-import 'package:upgrading/views/upgrading_page.dart';
 
-class MainPage extends StatefulWidget {
-  static const routeName = "/main";
+import '../../core/constant.dart';
 
-  const MainPage({super.key});
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _MainPageState createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 0;
+class CommunityPage extends StatelessWidget {
+  static const routeName = "/community";
+  const CommunityPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
-    const List<Widget> pages = <Widget>[
-      HomePage(),
-      SearchPage(),
-      CommunityPage(),
-      UpgradingPage(),
-      ProfilePage()
-    ];
-
     return Scaffold(
-        backgroundColor: const Color(0xFFF5F5F5),
-        bottomNavigationBar: Theme(
+      bottomNavigationBar: Theme(
           data: ThemeData(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
           ),
           child: BottomNavigationBar(
-            currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
+            currentIndex: 2,
+            onTap: (index) {
+              Navigator.pushNamed(context, pages[index]);
+            },
             type: BottomNavigationBarType.fixed,
             selectedIconTheme: IconThemeData(color: theme.primaryColor),
             selectedItemColor: theme.primaryColor,
@@ -76,15 +56,27 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
-        body: IndexedStack(
-          index: _selectedIndex,
-          children: pages,
-        ));
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+        body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("assets/images/coming-soon-icon.png"),
+          const SizedBox(height: 12),
+          Text("COMING",
+              style: GoogleFonts.poppins(
+                  fontSize: 40,
+                  fontWeight: FontWeight.w700,
+                  color: theme.primaryColor,
+                  height: 0.8)),
+          Text("SOON",
+              style: GoogleFonts.poppins(
+                  fontSize: 40,
+                  fontWeight: FontWeight.w700,
+                  color: theme.primaryColor,
+                  letterSpacing: 16.8,
+                  height: 0.8)),
+        ],
+      ),
+    ));
   }
 }

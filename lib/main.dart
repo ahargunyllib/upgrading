@@ -1,12 +1,23 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:upgrading/firebase_options.dart';
+import 'package:upgrading/views/community/community_page.dart';
+import 'package:upgrading/views/home/home_page.dart';
+import 'package:upgrading/views/upgrading/konsultasi/chat_page.dart';
+import 'package:upgrading/views/upgrading/konsultasi/konsultasi_page.dart';
+import 'package:upgrading/views/upgrading/konsultasi/profil_konsultan_page.dart';
+import 'package:upgrading/views/upgrading/konsultasi/session_payment_page.dart';
+import 'package:upgrading/views/upgrading/konsultasi/success_session_payment_page.dart';
+import 'package:upgrading/views/upgrading/video_persiapan/premium_payment_page.dart';
+import 'package:upgrading/views/profile/profile_page.dart';
+import 'package:upgrading/views/search/search_page.dart';
+import 'package:upgrading/views/upgrading/upgrading_page.dart';
+import 'package:upgrading/views/upgrading/video_persiapan/video_persiapan_page.dart';
 
 import 'core/helper.dart';
 import 'themes/app_theme.dart';
-import 'views/register_page.dart';
-import 'views/login_page.dart';
-import 'views/main_page.dart';
+import 'views/auth/register_page.dart';
+import 'views/auth/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,11 +56,23 @@ class _MainAppState extends State<MainApp> {
       debugShowCheckedModeBanner: false,
       title: "Upgrading",
       theme: appTheme(),
-      initialRoute: _isSignedIn ? MainPage.routeName : RegisterPage.routeName,
+      initialRoute: _isSignedIn ? HomePage.routeName : RegisterPage.routeName,
       routes: {
         RegisterPage.routeName: (context) => const RegisterPage(),
         LoginPage.routeName: (context) => const LoginPage(),
-        MainPage.routeName: (context) => const MainPage()
+        HomePage.routeName: (context) => const HomePage(),
+        SearchPage.routeName: (context) => const SearchPage(),
+        CommunityPage.routeName: (context) => const CommunityPage(),
+        UpgradingPage.routeName: (context) => const UpgradingPage(),
+        ProfilePage.routeName: (context) => const ProfilePage(),
+        VideoPersiapanPage.routeName: (context) => const VideoPersiapanPage(),
+        KonsultasiPage.routeName: (context) => const KonsultasiPage(),
+        PremiumPaymentPage.routeName: (context) => const PremiumPaymentPage(),
+        ProfilKonsultanPage.routeName: (context) => const ProfilKonsultanPage(),
+        SessionPaymentPage.routeName: (context) => const SessionPaymentPage(),
+        SuccessSessionPaymentPage.routeName: (context) =>
+            const SuccessSessionPaymentPage(),
+        ChatPage.routeName: (context) => const ChatPage(),
       },
     );
   }

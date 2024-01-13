@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:upgrading/widgets/konsultan_card.dart';
 
-import '../models/mentor_model.dart';
-import '../services/mentor_service.dart';
+import '../../../models/mentor_model.dart';
+import '../../../services/mentor_service.dart';
 
 class ListKonsultanPage extends StatelessWidget {
   const ListKonsultanPage({super.key});

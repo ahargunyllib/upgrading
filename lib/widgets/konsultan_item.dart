@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../models/mentor_model.dart';
-import '../views/chat_page.dart';
+import '../views/upgrading/konsultasi/chat_page.dart';
 
 class KonsultanItem extends StatelessWidget {
   final Mentor mentor;

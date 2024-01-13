@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upgrading/views/list_konsultan_page.dart';
-import 'package:upgrading/views/riwayat_konsultasi_page.dart';
+import 'package:upgrading/views/upgrading/konsultasi/list_konsultan_page.dart';
+import 'package:upgrading/views/upgrading/konsultasi/riwayat_konsultasi_page.dart';
+
+import '../../../core/constant.dart';
 
 class KonsultasiPage extends StatefulWidget {
   static const routeName = "/konsultasi";
@@ -44,6 +46,51 @@ class _KonsultasiPageState extends State<KonsultasiPage>
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.w700)),
+      ),
+      bottomNavigationBar: Theme(
+        data: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          currentIndex: 3,
+          onTap: (index) {
+            Navigator.pushNamed(context, pages[index]);
+          },
+          type: BottomNavigationBarType.fixed,
+          selectedIconTheme: IconThemeData(color: theme.primaryColor),
+          selectedItemColor: theme.primaryColor,
+          selectedLabelStyle: GoogleFonts.poppins(
+              color: theme.primaryColor, fontWeight: FontWeight.w400),
+          selectedFontSize: 10,
+          unselectedIconTheme: IconThemeData(color: theme.focusColor),
+          unselectedItemColor: theme.focusColor,
+          unselectedLabelStyle: GoogleFonts.poppins(
+              color: theme.primaryColor, fontWeight: FontWeight.w400),
+          unselectedFontSize: 10,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people_outline),
+              label: 'Community',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.create_new_folder_outlined),
+              label: 'Upgrading',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_2_outlined),
+              label: 'Profile',
+            ),
+          ],
+        ),
       ),
       body: Column(
         children: [

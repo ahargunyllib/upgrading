@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upgrading/views/profil_konsultan_page.dart';
+import 'package:upgrading/views/upgrading/konsultasi/profil_konsultan_page.dart';
 
 import '../models/mentor_model.dart';
 

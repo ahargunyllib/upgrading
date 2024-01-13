@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upgrading/views/success_session_payment_page.dart';
+import 'package:upgrading/views/upgrading/konsultasi/success_session_payment_page.dart';
 
-import '../core/constant.dart';
-import '../models/mentor_model.dart';
+import '../../../core/constant.dart';
+import '../../../models/mentor_model.dart';
 
 class SessionPaymentPage extends StatefulWidget {
   static const routeName = "/session-payment";
@@ -24,6 +24,51 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
+      bottomNavigationBar: Theme(
+        data: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          currentIndex: 3,
+          onTap: (index) {
+            Navigator.pushNamed(context, pages[index]);
+          },
+          type: BottomNavigationBarType.fixed,
+          selectedIconTheme: IconThemeData(color: theme.primaryColor),
+          selectedItemColor: theme.primaryColor,
+          selectedLabelStyle: GoogleFonts.poppins(
+              color: theme.primaryColor, fontWeight: FontWeight.w400),
+          selectedFontSize: 10,
+          unselectedIconTheme: IconThemeData(color: theme.focusColor),
+          unselectedItemColor: theme.focusColor,
+          unselectedLabelStyle: GoogleFonts.poppins(
+              color: theme.primaryColor, fontWeight: FontWeight.w400),
+          unselectedFontSize: 10,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people_outline),
+              label: 'Community',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.create_new_folder_outlined),
+              label: 'Upgrading',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_2_outlined),
+              label: 'Profile',
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: theme.primaryColor,
         shape: const RoundedRectangleBorder(
@@ -220,8 +265,8 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ListTile(
                                 contentPadding: EdgeInsets.zero,
                                 leading: Container(
-                                  width: 32,
-                                  height: 32,
+                                    width: 32,
+                                    height: 32,
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -238,7 +283,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                                       padding: const EdgeInsets.all(3),
                                       child: Image.asset(
                                         "assets/images/mandiri-icon.png",
-                                        fit: BoxFit.fill,
+                                        fit: BoxFit.contain,
                                       ),
                                     )),
                                 title: Text("Mandiri Virtual Account",
@@ -271,8 +316,8 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ListTile(
                                 contentPadding: EdgeInsets.zero,
                                 leading: Container(
-                                  width: 32,
-                                  height: 32,
+                                    width: 32,
+                                    height: 32,
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -289,7 +334,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                                       padding: const EdgeInsets.all(3),
                                       child: Image.asset(
                                         "assets/images/bri-icon.png",
-                                        fit: BoxFit.fill,
+                                        fit: BoxFit.contain,
                                       ),
                                     )),
                                 title: Text("BRI Virtual Account",
@@ -322,8 +367,8 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ListTile(
                                 contentPadding: EdgeInsets.zero,
                                 leading: Container(
-                                  width: 32,
-                                  height: 32,
+                                    width: 32,
+                                    height: 32,
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -340,7 +385,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                                       padding: const EdgeInsets.all(3),
                                       child: Image.asset(
                                         "assets/images/bca-icon.png",
-                                        fit: BoxFit.fill,
+                                        fit: BoxFit.contain,
                                       ),
                                     )),
                                 title: Text("BCA Virtual Account",
@@ -378,8 +423,8 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ListTile(
                                 contentPadding: EdgeInsets.zero,
                                 leading: Container(
-                                  width: 32,
-                                  height: 32,
+                                    width: 32,
+                                    height: 32,
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -429,8 +474,8 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ListTile(
                                 contentPadding: EdgeInsets.zero,
                                 leading: Container(
-                                  width: 32,
-                                  height: 32,
+                                    width: 32,
+                                    height: 32,
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -488,7 +533,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                     backgroundColor: theme.primaryColor,
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed(
+                    Navigator.of(context).pushReplacementNamed(
                         SuccessSessionPaymentPage.routeName,
                         arguments: <String, dynamic>{
                           'mentor': mentor,

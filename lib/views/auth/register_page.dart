@@ -2,26 +2,30 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upgrading/services/auth_service.dart';
-import 'package:upgrading/services/user_service.dart';
 
-import '../core/helper.dart';
-import '../widgets/custom_snack_bar.dart';
+import '../../core/helper.dart';
+import '../../services/auth_service.dart';
+import '../../services/user_service.dart';
+import '../../widgets/custom_snack_bar.dart';
+import '../home/home_page.dart';
 
-class LoginPage extends StatefulWidget {
-  static const routeName = "/login";
+class RegisterPage extends StatefulWidget {
+  static const routeName = "/register";
 
-  const LoginPage({super.key});
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
+  bool agreeToTerms = false;
   bool _isLoading = false;
   final formKey = GlobalKey<FormState>();
+  String fullName = "";
   String email = "";
   String password = "";
+  String confirmPassword = "";
   AuthService authService = AuthService();
 
   @override
@@ -30,42 +34,43 @@ class _LoginPageState extends State<LoginPage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: theme.primaryColor,
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator(color: Colors.white))
-          : SafeArea(
-              child: SingleChildScrollView(
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Center(
-                        child: Padding(
-                            padding: const EdgeInsets.only(top: 16.0),
-                            child: Image.asset("assets/images/logo-icon.png")),
-                      ),
-                      _buildWelcomeTexts(),
-                      const SizedBox(height: 48),
-                      _buildForm(size, theme, context),
-                    ],
+        backgroundColor: theme.primaryColor,
+        resizeToAvoidBottomInset: false,
+        body: _isLoading
+            ? const Center(
+                child: CircularProgressIndicator(color: Colors.white))
+            : SafeArea(
+                child: SingleChildScrollView(
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Center(
+                          child: Padding(
+                              padding: const EdgeInsets.only(top: 16.0),
+                              child:
+                                  Image.asset("assets/images/logo-icon.png")),
+                        ),
+                        const SizedBox(height: 77),
+                        _buildWelcomeTexts(),
+                        const SizedBox(height: 48),
+                        _buildForm(size, theme),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ),
-    );
+              ));
   }
 
   Widget _buildWelcomeTexts() {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, top: 77.0),
+      padding: const EdgeInsets.only(left: 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            'Welcome back to',
+            'Welcome to',
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
                 fontSize: 24,
@@ -78,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
           Image.asset("assets/images/logo-text.png"),
           const SizedBox(height: 8),
           Text(
-            'Silakan masukkan Email dan Password Anda',
+            'Pertama, mari buat akun Anda!',
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
                 fontSize: 12,
@@ -92,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildForm(Size size, ThemeData theme, BuildContext context) {
+  Widget _buildForm(Size size, ThemeData theme) {
     return Stack(children: [
       Container(
         width: size.width,
@@ -115,19 +120,23 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               children: [
+                _buildFullNameFormWidget(),
+                const SizedBox(height: 16),
                 _buildEmailFormWidget(),
                 const SizedBox(height: 16),
                 _buildPasswordFormWidget(),
                 const SizedBox(height: 16),
-                _buildForgotPasswordButton(theme),
+                _buildConfirmPasswordFormWidget(),
                 const SizedBox(height: 16),
-                _buildLogInButton(theme),
+                _buildAgreementRow(theme),
+                const SizedBox(height: 16),
+                _buildSignUpButton(theme),
                 const SizedBox(height: 16),
                 _buildOrSeparator(),
                 const SizedBox(height: 16),
                 _buildGoogleSignUpButton(theme),
                 const SizedBox(height: 16),
-                _buildSignUpPrompt(theme, context),
+                _buildLoginPrompt(theme),
                 const SizedBox(height: 69),
               ],
             ),
@@ -135,6 +144,42 @@ class _LoginPageState extends State<LoginPage> {
         ),
       )
     ]);
+  }
+
+  Widget _buildFullNameFormWidget() {
+    return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: const Color(0xFFAAC0CD),
+          ),
+        ),
+        child: TextFormField(
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            hintText: "Full Name",
+            hintStyle: GoogleFonts.poppins(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: const Color(0xFF9E9E9E),
+            ),
+            contentPadding: const EdgeInsets.only(left: 16),
+          ),
+          style: GoogleFonts.poppins(
+            textStyle: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: Color(0xFF0A0A0A)),
+          ),
+          obscureText: false,
+          enableSuggestions: true,
+          autocorrect: true,
+          onChanged: (val) {
+            setState(() {
+              fullName = val;
+            });
+          },
+        ));
   }
 
   Widget _buildEmailFormWidget() {
@@ -190,7 +235,49 @@ class _LoginPageState extends State<LoginPage> {
         child: TextFormField(
             decoration: InputDecoration(
               border: InputBorder.none,
-              hintText: "Password",
+              hintText: "Password (8 or more characters)",
+              hintStyle: GoogleFonts.poppins(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: const Color(0xFF9E9E9E),
+              ),
+              contentPadding: const EdgeInsets.only(left: 16),
+            ),
+            style: GoogleFonts.poppins(
+              textStyle: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF0A0A0A)),
+            ),
+            obscureText: true,
+            enableSuggestions: false,
+            autocorrect: false,
+            onChanged: (val) {
+              setState(() {
+                password = val;
+              });
+            },
+            validator: (val) {
+              if (val!.length < 7) {
+                return "Password must be at least 8 characters";
+              } else {
+                return null;
+              }
+            }));
+  }
+
+  Widget _buildConfirmPasswordFormWidget() {
+    return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: const Color(0xFFAAC0CD),
+          ),
+        ),
+        child: TextFormField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: "Confirm Password",
               hintStyle: GoogleFonts.poppins(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
@@ -215,26 +302,53 @@ class _LoginPageState extends State<LoginPage> {
             validator: (val) {
               if (val!.length < 6) {
                 return "Password must be at least 6 characters";
+              } else if (val != password) {
+                return "Your password doesn't match";
               } else {
                 return null;
               }
             }));
   }
 
-  Widget _buildLogInButton(ThemeData theme) {
+  Widget _buildAgreementRow(ThemeData theme) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Checkbox(
+          value: agreeToTerms,
+          onChanged: (value) {
+            setState(() {
+              agreeToTerms = value!;
+            });
+          },
+        ),
+        const SizedBox(width: 8),
+        Text(
+          "I agree with the terms of service and privacy policy",
+          style: GoogleFonts.poppins(
+            color: theme.primaryColor,
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSignUpButton(ThemeData theme) {
     return SizedBox(
       width: double.infinity,
       height: 46,
       child: ElevatedButton(
         onPressed: () {
-          login();
+          register();
         },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           backgroundColor: theme.primaryColor,
         ),
         child: Text(
-          "Log In",
+          "Sign Up",
           style: GoogleFonts.poppins(
             color: Colors.white,
             fontSize: 16,
@@ -276,7 +390,7 @@ class _LoginPageState extends State<LoginPage> {
             Image.asset("assets/images/google-icon.png"),
             const SizedBox(width: 8),
             Text(
-              "Log In with Google",
+              "Sign Up with Google",
               style: GoogleFonts.poppins(
                 color: theme.primaryColor,
                 fontSize: 16,
@@ -289,13 +403,13 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildSignUpPrompt(ThemeData theme, BuildContext context) {
+  Widget _buildLoginPrompt(ThemeData theme) {
     return Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Don't have an account? ",
+            "Already have an account? ",
             style: GoogleFonts.poppins(
               color: theme.primaryColor,
               fontSize: 14,
@@ -304,7 +418,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           GestureDetector(
             child: Text(
-              "Sign up",
+              "Log in",
               style: GoogleFonts.poppins(
                 color: theme.primaryColor,
                 fontSize: 14,
@@ -312,7 +426,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             onTap: () {
-              Navigator.pushNamed(context, "/register");
+              Navigator.pushNamed(context, "/login");
             },
           ),
         ],
@@ -320,43 +434,30 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  _buildForgotPasswordButton(ThemeData theme) {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: GestureDetector(
-        child: Text(
-          "Forgot Password?",
-          style: GoogleFonts.poppins(
-            color: theme.primaryColor,
-            fontSize: 14,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        onTap: () {},
-      ),
-    );
-  }
-
-  login() async {
+  register() async {
     if (formKey.currentState!.validate()) {
-      setState(() {
-        _isLoading = true;
-      });
-      await authService.logIn(email, password).then((value) async {
-        if (value == true) {
-          QuerySnapshot snapshot =
-              await UserService(uid: FirebaseAuth.instance.currentUser!.uid)
-                  .gettingUserData(email);
-          await Helper.saveUserLoggedInStatus(true);
-          await Helper.saveUserEmail(email);
-          await Helper.saveUserName(snapshot.docs[0]['fullName']);
-          // ignore: use_build_context_synchronously
-          Navigator.pushReplacementNamed(context, "/main");
-        } else {
-          showSnackBar(context, Colors.red, value.toString());
-          setState(() => _isLoading = false);
-        }
-      });
+      if (agreeToTerms) {
+        setState(() {
+          _isLoading = true;
+        });
+        await authService.signUp(fullName, email, password).then((value) async {
+          if (value == true) {
+            await Helper.saveUserLoggedInStatus(true);
+            await Helper.saveUserEmail(email);
+            await Helper.saveUserName(fullName);
+            // ignore: use_build_context_synchronously
+            Navigator.pushReplacementNamed(context, "/login");
+          } else {
+            showSnackBar(context, Colors.red, value);
+            setState(() => _isLoading = false);
+          }
+        });
+      } else {
+        showSnackBar(context, Colors.red,
+            "You need to agree with the terms of service and privacy policy");
+      }
+    } else {
+      showSnackBar(context, Colors.red, "Your password does not match");
     }
   }
 
@@ -373,7 +474,7 @@ class _LoginPageState extends State<LoginPage> {
         await Helper.saveUserEmail(user.email!);
         await Helper.saveUserName(snapshot.docs[0]['fullName']);
         // ignore: use_build_context_synchronously
-        Navigator.pushReplacementNamed(context, "/main");
+        Navigator.pushReplacementNamed(context, HomePage.routeName);
       } else {
         showSnackBar(context, Colors.red, value.toString());
         setState(() => _isLoading = false);

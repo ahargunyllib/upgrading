@@ -4,7 +4,7 @@ import 'package:upgrading/services/mentor_service.dart';
 import 'package:upgrading/services/user_service.dart';
 import 'package:upgrading/widgets/konsultan_item.dart';
 
-import '../models/mentor_model.dart';
+import '../../../models/mentor_model.dart';
 
 class RiwayatKonsultasiPage extends StatelessWidget {
   const RiwayatKonsultasiPage({super.key});
