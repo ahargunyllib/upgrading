@@ -66,7 +66,7 @@ class _MainPageState extends State<MainPage> {
                 label: 'Community',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
+                icon: Icon(Icons.create_new_folder_outlined),
                 label: 'Upgrading',
               ),
               BottomNavigationBarItem(

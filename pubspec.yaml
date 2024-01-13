@@ -40,12 +40,5 @@ flutter_launcher_icons:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/coming-soon-icon.png
-    - assets/images/consultation-icon.png
-    - assets/images/video-preparation-icon.png
-    - assets/images/dummy-beasiswa-icon.png
-    - assets/images/dummy-mentor-icon.png
-    - assets/images/logo-icon.png
-    - assets/images/logo-text.png
-    - assets/images/success-payment-icon.png
+    - assets/images/
   

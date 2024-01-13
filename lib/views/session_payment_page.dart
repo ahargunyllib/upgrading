@@ -235,7 +235,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(3),
                                       child: Image.asset(
-                                        "assets/images/dummy-beasiswa-icon.png",
+                                        "assets/images/mandiri-icon.png",
                                         fit: BoxFit.fill,
                                       ),
                                     )),
@@ -284,7 +284,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(3),
                                       child: Image.asset(
-                                        "assets/images/dummy-beasiswa-icon.png",
+                                        "assets/images/bri-icon.png",
                                         fit: BoxFit.fill,
                                       ),
                                     )),
@@ -333,7 +333,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(3),
                                       child: Image.asset(
-                                        "assets/images/dummy-beasiswa-icon.png",
+                                        "assets/images/bca-icon.png",
                                         fit: BoxFit.fill,
                                       ),
                                     )),
@@ -387,7 +387,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(3),
                                       child: Image.asset(
-                                        "assets/images/dummy-beasiswa-icon.png",
+                                        "assets/images/gopay-icon.png",
                                         fit: BoxFit.fill,
                                       ),
                                     )),
@@ -436,7 +436,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(3),
                                       child: Image.asset(
-                                        "assets/images/dummy-beasiswa-icon.png",
+                                        "assets/images/ovo-icon.png",
                                         fit: BoxFit.fill,
                                       ),
                                     )),

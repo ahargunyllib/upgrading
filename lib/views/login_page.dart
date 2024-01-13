@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:upgrading/services/auth_service.dart';
 import 'package:upgrading/services/user_service.dart';
 
@@ -274,7 +273,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FaIcon(FontAwesomeIcons.google, color: theme.primaryColor),
+            Image.asset("assets/images/google-icon.png"),
             const SizedBox(width: 8),
             Text(
               "Log In with Google",

@@ -387,7 +387,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FaIcon(FontAwesomeIcons.google, color: theme.primaryColor),
+            Image.asset("assets/images/google-icon.png"),
             const SizedBox(width: 8),
             Text(
               "Sign Up with Google",
