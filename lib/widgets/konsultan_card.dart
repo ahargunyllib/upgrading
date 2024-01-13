@@ -125,7 +125,7 @@ class KonsultanCard extends StatelessWidget {
                     fontWeight: FontWeight.w700)),
             const SizedBox(height: 12),
             SizedBox(
-              width: 140,
+              width: 160,
               height: 30,
               child: ElevatedButton(
                 onPressed: () {
