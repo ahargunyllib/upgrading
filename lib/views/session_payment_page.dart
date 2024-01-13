@@ -220,6 +220,8 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ListTile(
                                 contentPadding: EdgeInsets.zero,
                                 leading: Container(
+                                  width: 32,
+                                  height: 32,
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -269,6 +271,8 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ListTile(
                                 contentPadding: EdgeInsets.zero,
                                 leading: Container(
+                                  width: 32,
+                                  height: 32,
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -318,6 +322,8 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ListTile(
                                 contentPadding: EdgeInsets.zero,
                                 leading: Container(
+                                  width: 32,
+                                  height: 32,
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -372,6 +378,8 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ListTile(
                                 contentPadding: EdgeInsets.zero,
                                 leading: Container(
+                                  width: 32,
+                                  height: 32,
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -421,6 +429,8 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ListTile(
                                 contentPadding: EdgeInsets.zero,
                                 leading: Container(
+                                  width: 32,
+                                  height: 32,
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
