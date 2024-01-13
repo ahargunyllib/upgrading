@@ -36,20 +36,25 @@ class _LoginPageState extends State<LoginPage> {
       body: _isLoading
           ? const Center(child: CircularProgressIndicator(color: Colors.white))
           : SafeArea(
-              child: SingleChildScrollView(
-                child: Form(
-                  key: formKey,
+              child: Form(
+                key: formKey,
+                child: Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Center(
-                        child: Padding(
-                            padding: const EdgeInsets.only(top: 16.0),
-                            child: Image.asset("assets/images/logo-icon.png")),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(
+                            child: Padding(
+                                padding: const EdgeInsets.only(top: 16.0),
+                                child:
+                                    Image.asset("assets/images/logo-icon.png")),
+                          ),
+                          _buildWelcomeTexts(),
+                        ],
                       ),
-                      _buildWelcomeTexts(),
-                      const SizedBox(height: 48),
                       _buildForm(size, theme, context),
                     ],
                   ),
@@ -94,48 +99,51 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _buildForm(Size size, ThemeData theme, BuildContext context) {
-    return Stack(children: [
-      Container(
-        width: size.width,
-        height: 48,
-        decoration: const ShapeDecoration(
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(32),
-              topRight: Radius.circular(32),
+    return SizedBox(
+      height: 450,
+      child: Stack(children: [
+        Container(
+          width: size.width,
+          height: 48,
+          decoration: const ShapeDecoration(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(32),
+                topRight: Radius.circular(32),
+              ),
             ),
           ),
         ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 48),
-        child: Container(
-          color: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              children: [
-                _buildEmailFormWidget(),
-                const SizedBox(height: 16),
-                _buildPasswordFormWidget(),
-                const SizedBox(height: 16),
-                _buildForgotPasswordButton(theme),
-                const SizedBox(height: 16),
-                _buildLogInButton(theme),
-                const SizedBox(height: 16),
-                _buildOrSeparator(),
-                const SizedBox(height: 16),
-                _buildGoogleSignUpButton(theme),
-                const SizedBox(height: 16),
-                _buildSignUpPrompt(theme, context),
-                const SizedBox(height: 69),
-              ],
+        Padding(
+          padding: const EdgeInsets.only(top: 48),
+          child: Container(
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: [
+                  _buildEmailFormWidget(),
+                  const SizedBox(height: 16),
+                  _buildPasswordFormWidget(),
+                  const SizedBox(height: 16),
+                  _buildForgotPasswordButton(theme),
+                  const SizedBox(height: 16),
+                  _buildLogInButton(theme),
+                  const SizedBox(height: 16),
+                  _buildOrSeparator(),
+                  const SizedBox(height: 16),
+                  _buildGoogleSignUpButton(theme),
+                  const SizedBox(height: 16),
+                  _buildSignUpPrompt(theme, context),
+                  const SizedBox(height: 48),
+                ],
+              ),
             ),
           ),
-        ),
-      )
-    ]);
+        )
+      ]),
+    );
   }
 
   Widget _buildEmailFormWidget() {
