@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:upgrading/views/coming_soon_page.dart';
 
 import '../../core/constant.dart';
 
@@ -57,25 +58,45 @@ class SearchPage extends StatelessWidget {
           ),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset("assets/images/coming-soon-icon.png"),
-              const SizedBox(height: 12),
-              Text("COMING",
-                  style: GoogleFonts.poppins(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w700,
-                      color: theme.primaryColor,
-                      height: 0.8)),
-              Text("SOON",
-                  style: GoogleFonts.poppins(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w700,
-                      color: theme.primaryColor,
-                      letterSpacing: 16.8,
-                      height: 0.8)),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Ingin mencari apa?"),
+                const SizedBox(height: 33),
+                ListTile(
+                  leading: Image.asset(
+                    "assets/images/beasiswa-icon.png",
+                    height: 118,
+                    // width: 150,
+                    fit: BoxFit.contain,
+                  ),
+                  title: const Text("Beasiswa Pendidikan"),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                  horizontalTitleGap: 12,
+                  onTap: () {
+                    Navigator.of(context).pushNamed(ComingSoonPage.routeName);
+                  },
+                ),
+                const SizedBox(height: 24),
+                ListTile(
+                  leading: Image.asset(
+                    "assets/images/organisasi-icon.png",
+                    height: 118,
+                    width: 61,
+                    fit: BoxFit.contain,
+                  ),
+                  title: const Text("Organisasi"),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(ComingSoonPage.routeName);
+                  },
+                )
+              ],
+            ),
           ),
         ));
   }

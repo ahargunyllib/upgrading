@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:upgrading/firebase_options.dart';
+import 'package:upgrading/views/coming_soon_page.dart';
 import 'package:upgrading/views/community/community_page.dart';
 import 'package:upgrading/views/home/home_page.dart';
 import 'package:upgrading/views/upgrading/konsultasi/chat_page.dart';
@@ -65,6 +66,7 @@ class _MainAppState extends State<MainApp> {
         CommunityPage.routeName: (context) => const CommunityPage(),
         UpgradingPage.routeName: (context) => const UpgradingPage(),
         ProfilePage.routeName: (context) => const ProfilePage(),
+        ComingSoonPage.routeName: (context) => const ComingSoonPage(),
         VideoPersiapanPage.routeName: (context) => const VideoPersiapanPage(),
         KonsultasiPage.routeName: (context) => const KonsultasiPage(),
         PremiumPaymentPage.routeName: (context) => const PremiumPaymentPage(),
