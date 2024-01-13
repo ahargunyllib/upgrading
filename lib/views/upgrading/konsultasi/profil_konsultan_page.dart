@@ -36,50 +36,50 @@ class ProfilKonsultanPage extends StatelessWidget {
                 fontWeight: FontWeight.w700)),
       ),
       bottomNavigationBar: Theme(
-          data: ThemeData(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-          ),
-          child: BottomNavigationBar(
-            currentIndex: 3,
-            onTap: (index) {
-              Navigator.pushNamed(context, pages[index]);
-            },
-            type: BottomNavigationBarType.fixed,
-            selectedIconTheme: IconThemeData(color: theme.primaryColor),
-            selectedItemColor: theme.primaryColor,
-            selectedLabelStyle: GoogleFonts.poppins(
-                color: theme.primaryColor, fontWeight: FontWeight.w400),
-            selectedFontSize: 10,
-            unselectedIconTheme: IconThemeData(color: theme.focusColor),
-            unselectedItemColor: theme.focusColor,
-            unselectedLabelStyle: GoogleFonts.poppins(
-                color: theme.primaryColor, fontWeight: FontWeight.w400),
-            unselectedFontSize: 10,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: 'Search',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.people_outline),
-                label: 'Community',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.create_new_folder_outlined),
-                label: 'Upgrading',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person_2_outlined),
-                label: 'Profile',
-              ),
-            ],
-          ),
+        data: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
         ),
+        child: BottomNavigationBar(
+          currentIndex: 3,
+          onTap: (index) {
+            Navigator.pushNamed(context, pages[index]);
+          },
+          type: BottomNavigationBarType.fixed,
+          selectedIconTheme: IconThemeData(color: theme.primaryColor),
+          selectedItemColor: theme.primaryColor,
+          selectedLabelStyle: GoogleFonts.poppins(
+              color: theme.primaryColor, fontWeight: FontWeight.w400),
+          selectedFontSize: 10,
+          unselectedIconTheme: IconThemeData(color: theme.focusColor),
+          unselectedItemColor: theme.focusColor,
+          unselectedLabelStyle: GoogleFonts.poppins(
+              color: theme.primaryColor, fontWeight: FontWeight.w400),
+          unselectedFontSize: 10,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people_outline),
+              label: 'Community',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.create_new_folder_outlined),
+              label: 'Upgrading',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_2_outlined),
+              label: 'Profile',
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -103,13 +103,16 @@ class ProfilKonsultanPage extends StatelessWidget {
                     future: mentor.profileUrl,
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.done) {
-                        return CircleAvatar(
-                            child: Image.network(
-                          snapshot.data!,
-                          fit: BoxFit.fill,
-                          width: 50,
-                          height: 50,
-                        ));
+                        return Container(
+                            width: 100,
+                            height: 100,
+                            decoration: ShapeDecoration(
+                              color: Colors.red,
+                              shape: OvalBorder(),
+                              image: DecorationImage(
+                                  image: NetworkImage(snapshot.data!),
+                                  fit: BoxFit.cover),
+                            ));
                       } else if (snapshot.connectionState ==
                           ConnectionState.waiting) {
                         return const Center(
