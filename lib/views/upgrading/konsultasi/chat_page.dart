@@ -173,7 +173,7 @@ class _ChatPageState extends State<ChatPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(
+                          Expanded( // TODO: BUG text field size
                             child: Container(
                               height: 16,
                               child: TextField(
