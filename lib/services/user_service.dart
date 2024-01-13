@@ -25,9 +25,8 @@ class UserService {
     return snapshot;
   }
 
-  Future<QuerySnapshot<Object?>> getAllChatRooms() async {
-    Future<QuerySnapshot<Object?>> snapshot = userCollection.doc(uid).collection("chats").get();
-    print(snapshot);
+  Future<DocumentSnapshot<Object?>> getAllChatRooms() async {
+    Future<DocumentSnapshot<Object?>> snapshot = userCollection.doc(uid).get();
     return snapshot;
   }
 }

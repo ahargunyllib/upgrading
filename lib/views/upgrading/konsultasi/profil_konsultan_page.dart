@@ -108,7 +108,7 @@ class ProfilKonsultanPage extends StatelessWidget {
                             height: 100,
                             decoration: ShapeDecoration(
                               color: Colors.red,
-                              shape: OvalBorder(),
+                              shape: const OvalBorder(),
                               image: DecorationImage(
                                   image: NetworkImage(snapshot.data!),
                                   fit: BoxFit.cover),

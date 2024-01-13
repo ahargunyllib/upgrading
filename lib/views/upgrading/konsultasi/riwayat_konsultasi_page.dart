@@ -17,9 +17,11 @@ class RiwayatKonsultasiPage extends StatelessWidget {
         builder: ((context, snapshot) {
           if (snapshot.hasData) {
             List<String> receiverIds = [];
-            snapshot.data!.docs.forEach((element) {
-              String userId = element.id.split("_")[0];
-              String otherUserId = element.id.split("_")[1];
+            // print(snapshot.data!.data());
+            (snapshot.data!.data() as Map<String, dynamic>)['chats']
+                .forEach((chatRoomId) {
+              String userId = chatRoomId.split("_")[0];
+              String otherUserId = chatRoomId.split("_")[1];
               if (userId == currentUserId) {
                 receiverIds.add(otherUserId);
               } else {
@@ -40,9 +42,20 @@ class RiwayatKonsultasiPage extends StatelessWidget {
       itemCount: receiverIds.length,
       padding: const EdgeInsets.symmetric(vertical: 4),
       itemBuilder: (context, index) {
-        Mentor mentor =
-            Mentor.fromMap(MentorService().getMentor(receiverIds[index]) as Map<String,dynamic>, receiverIds[index]);
-        return KonsultanItem(mentor: mentor);
+        return FutureBuilder(
+            future: MentorService().getMentor(receiverIds[index]),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                Mentor mentor = Mentor.fromMap(
+                    snapshot.data!.data() as Map<String, dynamic>,
+                    snapshot.data!.id);
+                return KonsultanItem(mentor: mentor);
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            });
       },
     );
   }

@@ -7,7 +7,6 @@ class ChatService {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   Future sendMessage(String message, String receiverId) async {
-    print('sending message');
     final String senderId = firebaseAuth.currentUser!.uid;
     final String senderEmail = firebaseAuth.currentUser!.email.toString();
     final Timestamp createdAt = Timestamp.now();
@@ -28,7 +27,6 @@ class ChatService {
         .doc(chatRoomId)
         .collection('messages')
         .add(newMessage.toMap());
-    print('message sended');
 
     await firestore.collection('mentors').doc(receiverId).update({
       'chats': FieldValue.arrayUnion([chatRoomId])
