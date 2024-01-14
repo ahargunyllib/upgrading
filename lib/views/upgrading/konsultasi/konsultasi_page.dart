@@ -160,7 +160,8 @@ class _KonsultasiPageState extends State<KonsultasiPage>
                           children: [
                             Icon(Icons.search, color: theme.primaryColor),
                             const SizedBox(width: 4),
-                            Expanded( // TODO: BUG Search
+                            Expanded(
+                              // TODO: BUG Search
                               child: TextField(
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
@@ -227,7 +228,10 @@ class _KonsultasiPageState extends State<KonsultasiPage>
               tabs: const [
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 11),
-                  child: Text("Konsultan Populer"),
+                  child: Text(
+                    "Konsultan Populer",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 11),

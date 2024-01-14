@@ -13,8 +13,7 @@ class KonsultanItem extends StatelessWidget {
     final theme = Theme.of(context);
     return InkWell(
       onTap: () {
-        Navigator.of(context)
-            .pushNamed(ChatPage.routeName, arguments: mentor);
+        Navigator.of(context).pushNamed(ChatPage.routeName, arguments: mentor);
       },
       borderRadius: BorderRadius.circular(8),
       child: Container(
@@ -54,21 +53,29 @@ class KonsultanItem extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(mentor.fullName,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      mentor.fullName,
                       style: GoogleFonts.poppins(
                           color: theme.primaryColor,
                           fontSize: 12,
-                          fontWeight: FontWeight.w700)),
-                  Text(mentor.beasiswa.nama,
+                          fontWeight: FontWeight.w700),
+                      softWrap: true,
+                    ),
+                    Text(
+                      mentor.beasiswa.nama,
                       style: GoogleFonts.poppins(
                           fontSize: 10,
                           color: theme.primaryColor,
-                          fontWeight: FontWeight.w400))
-                ],
+                          fontWeight: FontWeight.w400),
+                      softWrap: true,
+                    )
+                  ],
+                ),
               ),
             ],
           ),
