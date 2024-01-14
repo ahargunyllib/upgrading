@@ -3,14 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/services/scholarship_service.dart';
 import 'package:upgrading/views/coming_soon_page.dart';
+import 'package:upgrading/views/search/beasiswa/detail_beasiswa_page.dart';
 import 'package:upgrading/widgets/beasiswa_card.dart';
 
 import '../../../core/constant.dart';
 import '../../../models/scholarships_model.dart';
 
-class BeasiswaPage extends StatelessWidget {
+class BeasiswaPage extends StatefulWidget {
   static const routeName = "/beasiswa";
+
   const BeasiswaPage({super.key});
+
+  @override
+  State<BeasiswaPage> createState() => _BeasiswaPageState();
+}
+
+class _BeasiswaPageState extends State<BeasiswaPage> {
+  final TextEditingController filterC = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +39,7 @@ class BeasiswaPage extends StatelessWidget {
           ),
           centerTitle: true,
           title: Text("Beasiswa Pendidikan",
-              textAlign: TextAlign.center,
+              // textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 20,
@@ -160,6 +169,7 @@ class BeasiswaPage extends StatelessWidget {
                               Expanded(
                                 // TODO: BUG Search
                                 child: TextField(
+                                  controller: filterC,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: "Search",
@@ -226,7 +236,13 @@ class BeasiswaPage extends StatelessWidget {
                     return ListView.builder(
                       itemCount: beasiswas.length,
                       itemBuilder: (context, index) {
-                        return BeasiswaCard(beasiswa: beasiswas[index]);
+                        return InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, DetailBeasiswaPage.routeName,
+                                  arguments: beasiswas[index]);
+                            },
+                            child: BeasiswaCard(beasiswa: beasiswas[index]));
                       },
                     );
                   } else {

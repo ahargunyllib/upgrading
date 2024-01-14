@@ -5,6 +5,7 @@ import 'package:upgrading/views/coming_soon_page.dart';
 import 'package:upgrading/views/community/community_page.dart';
 import 'package:upgrading/views/home/home_page.dart';
 import 'package:upgrading/views/search/beasiswa/beasiswa_page.dart';
+import 'package:upgrading/views/search/beasiswa/detail_beasiswa_page.dart';
 import 'package:upgrading/views/upgrading/konsultasi/chat_page.dart';
 import 'package:upgrading/views/upgrading/konsultasi/konsultasi_page.dart';
 import 'package:upgrading/views/upgrading/konsultasi/profil_konsultan_page.dart';
@@ -77,6 +78,7 @@ class _MainAppState extends State<MainApp> {
             const SuccessSessionPaymentPage(),
         ChatPage.routeName: (context) => const ChatPage(),
         BeasiswaPage.routeName: (context) => const BeasiswaPage(),
+        DetailBeasiswaPage.routeName: (context) => const DetailBeasiswaPage(),
       },
     );
   }

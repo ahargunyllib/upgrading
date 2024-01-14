@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/models/scholarships_model.dart';
+import 'package:upgrading/views/search/beasiswa/beasiswa_page.dart';
 
 class BeasiswaCard extends StatelessWidget {
   final Beasiswa beasiswa;
