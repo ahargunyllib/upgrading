@@ -13,7 +13,7 @@ class UpgradingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      bottomNavigationBar: Theme(
+        bottomNavigationBar: Theme(
           data: ThemeData(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
@@ -59,37 +59,39 @@ class UpgradingPage extends StatelessWidget {
           ),
         ),
         body: Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text("Akses Fitur Premium"),
-            const SizedBox(height: 33),
-            ListTile(
-              leading: Image.asset("assets/images/video-preparation-icon.png"),
-              title: const Text("Video Persiapan"),
-              subtitle: const Text(
-                  "Akses konten video berisi persiapan beasiswa atau organisasi yang Anda inginkan"),
-              contentPadding: const EdgeInsets.all(16),
-              onTap: () {
-                Navigator.of(context).pushNamed(VideoPersiapanPage.routeName);
-              },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Akses Fitur Premium"),
+                const SizedBox(height: 33),
+                ListTile(
+                  leading:
+                      Image.asset("assets/images/video-preparation-icon.png"),
+                  title: const Text("Video Persiapan"),
+                  subtitle: const Text(
+                      "Akses konten video berisi persiapan beasiswa atau organisasi yang Anda inginkan"),
+                  contentPadding: const EdgeInsets.all(16),
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed(VideoPersiapanPage.routeName);
+                  },
+                ),
+                const SizedBox(height: 24),
+                ListTile(
+                  leading: Image.asset("assets/images/consultation-icon.png"),
+                  title: const Text("Konsultasi"),
+                  subtitle: const Text(
+                      "Konsultasi dengan penerima beasiswa atau anggota organisasi yang Anda inginkan"),
+                  contentPadding: const EdgeInsets.all(16),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(KonsultasiPage.routeName);
+                  },
+                )
+              ],
             ),
-            const SizedBox(height: 24),
-            ListTile(
-              leading: Image.asset("assets/images/consultation-icon.png"),
-              title: const Text("Konsultasi"),
-              subtitle: const Text(
-                  "Konsultasi dengan penerima beasiswa atau anggota organisasi yang Anda inginkan"),
-              contentPadding: const EdgeInsets.all(16),
-              onTap: () {
-                Navigator.of(context).pushNamed(KonsultasiPage.routeName);
-              },
-            )
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 }
