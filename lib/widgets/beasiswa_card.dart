@@ -98,12 +98,13 @@ class BeasiswaCard extends StatelessWidget {
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const SizedBox(height: 16),
                       Text("Open Registration",
                           style: GoogleFonts.poppins(
                               fontSize: 10,
@@ -115,6 +116,7 @@ class BeasiswaCard extends StatelessWidget {
                               fontSize: 10,
                               fontWeight: FontWeight.w700,
                               color: theme.primaryColor)),
+                      const SizedBox(height: 16),
                     ],
                   ),
                   Container(
@@ -133,6 +135,7 @@ class BeasiswaCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const SizedBox(height: 16),
                       Text("Open Registration",
                           style: GoogleFonts.poppins(
                               fontSize: 10,
@@ -144,6 +147,7 @@ class BeasiswaCard extends StatelessWidget {
                               fontSize: 10,
                               fontWeight: FontWeight.w700,
                               color: theme.primaryColor)),
+                      const SizedBox(height: 16),
                     ],
                   ),
                 ],
