@@ -30,7 +30,6 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
     final theme = Theme.of(context);
     final Beasiswa beasiswa =
         ModalRoute.of(context)!.settings.arguments as Beasiswa;
-
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
@@ -177,10 +176,272 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
             ]),
             Expanded(
               child: TabBarView(controller: _tabController, children: [
-                Padding(padding: EdgeInsets.all(16), child: ComingSoonPage()),
-                Padding(padding: EdgeInsets.all(16), child: ComingSoonPage()),
-                Padding(padding: EdgeInsets.all(16), child: ComingSoonPage()),
+                SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: ShapeDecoration(
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              side: const BorderSide(
+                                width: 1,
+                                strokeAlign: BorderSide.strokeAlignOutside,
+                                color: Color(0xFFAAC0CD),
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("Tentang ${beasiswa.nama}",
+                                    style: GoogleFonts.poppins(
+                                        color: theme.primaryColor,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w700)),
+                                const SizedBox(height: 12),
+                                Container(
+                                    width: double.infinity,
+                                    decoration: ShapeDecoration(
+                                      shape: RoundedRectangleBorder(
+                                        side: BorderSide(
+                                          width: 2,
+                                          strokeAlign:
+                                              BorderSide.strokeAlignCenter,
+                                          color: theme.primaryColor,
+                                        ),
+                                      ),
+                                    )),
+                                const SizedBox(height: 16),
+                                Text(beasiswa.deskripsi,
+                                    softWrap: true,
+                                    textAlign: TextAlign.justify,
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 10,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w400))
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Container(
+                          decoration: ShapeDecoration(
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              side: const BorderSide(
+                                width: 1,
+                                strokeAlign: BorderSide.strokeAlignOutside,
+                                color: Color(0xFFAAC0CD),
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("Komponen Beasiswa",
+                                    style: GoogleFonts.poppins(
+                                        color: theme.primaryColor,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w700)),
+                                const SizedBox(height: 12),
+                                Container(
+                                    width: double.infinity,
+                                    decoration: ShapeDecoration(
+                                      shape: RoundedRectangleBorder(
+                                        side: BorderSide(
+                                          width: 2,
+                                          strokeAlign:
+                                              BorderSide.strokeAlignCenter,
+                                          color: theme.primaryColor,
+                                        ),
+                                      ),
+                                    )),
+                                const SizedBox(height: 16),
+                                Text(
+                                    beasiswa.komponen
+                                        .replaceAll('\\n', '\n')
+                                        .replaceAll('\\t', '\t'),
+                                    softWrap: true,
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 10,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w400))
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Container(
+                      decoration: ShapeDecoration(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                            width: 1,
+                            strokeAlign: BorderSide.strokeAlignOutside,
+                            color: Color(0xFFAAC0CD),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Persyaratan Umum",
+                                style: GoogleFonts.poppins(
+                                    color: theme.primaryColor,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w700)),
+                            const SizedBox(height: 12),
+                            Container(
+                                width: double.infinity,
+                                decoration: ShapeDecoration(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                      width: 2,
+                                      strokeAlign: BorderSide.strokeAlignCenter,
+                                      color: theme.primaryColor,
+                                    ),
+                                  ),
+                                )),
+                            const SizedBox(height: 16),
+                            Text(
+                                beasiswa.persyaratan
+                                    .replaceAll('\\n', '\n')
+                                    .replaceAll('\\t', '\t'),
+                                softWrap: true,
+                                style: GoogleFonts.poppins(
+                                    fontSize: 10,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400))
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Container(
+                      decoration: ShapeDecoration(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                            width: 1,
+                            strokeAlign: BorderSide.strokeAlignOutside,
+                            color: Color(0xFFAAC0CD),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Persyaratan Dokumen",
+                                style: GoogleFonts.poppins(
+                                    color: theme.primaryColor,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w700)),
+                            const SizedBox(height: 12),
+                            Container(
+                                width: double.infinity,
+                                decoration: ShapeDecoration(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                      width: 2,
+                                      strokeAlign: BorderSide.strokeAlignCenter,
+                                      color: theme.primaryColor,
+                                    ),
+                                  ),
+                                )),
+                            const SizedBox(height: 16),
+                            Text(
+                                beasiswa.dokumen
+                                    .replaceAll('\\n', '\n')
+                                    .replaceAll('\\t', '\t'),
+                                softWrap: true,
+                                style: GoogleFonts.poppins(
+                                    fontSize: 10,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400))
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+              child: SizedBox(
+                height: 46,
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 1, color: Color(0xFFAAC0CD)),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    backgroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(ComingSoonPage.routeName);
+                  },
+                  child: Text("Bergabung ke Komunitas",
+                      style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700)),
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
+              child: SizedBox(
+                height: 46,
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    backgroundColor: theme.primaryColor,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(ComingSoonPage.routeName);
+                  },
+                  child: Text("Daftar Sekarang",
+                      style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700)),
+                ),
+              ),
             )
           ]),
     );

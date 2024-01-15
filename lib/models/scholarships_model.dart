@@ -8,10 +8,10 @@ class Beasiswa {
   final Future<String> logoUrl;
   final String openRegist;
   final String closeRegist;
-  // final String deskripsi;
-  // final String komponen;
-  // final String persyaratan;
-  // final String dokumen;
+  final String deskripsi;
+  final String komponen;
+  final String persyaratan;
+  final String dokumen;
   // final List<String> users;
 
   Beasiswa({
@@ -21,10 +21,10 @@ class Beasiswa {
     required this.logoUrl,
     required this.openRegist,
     required this.closeRegist,
-    // required this.deskripsi,
-    // required this.komponen,
-    // required this.persyaratan,
-    // required this.dokumen,
+    required this.deskripsi,
+    required this.komponen,
+    required this.persyaratan,
+    required this.dokumen,
     // required this.users,
   });
 
@@ -39,10 +39,10 @@ class Beasiswa {
           .getDownloadURL(),
       openRegist: map['open-registration'] ?? '',
       closeRegist: map['close-registration'] ?? '',
-      // deskripsi: json['deskripsi'],
-      // komponen: json['komponen'],
-      // persyaratan: json['persyaratan'],
-      // dokumen: json['dokumen'],
+      deskripsi: map['deskripsi'] ?? '',
+      komponen: map['komponen'] ?? '',
+      persyaratan: map['persyaratan'] ?? '',
+      dokumen: map['dokumen'] ?? '',
       // users: List<String>.from(json['users']),
     );
   }
