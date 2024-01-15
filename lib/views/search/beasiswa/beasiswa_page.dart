@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/services/scholarship_service.dart';
-import 'package:upgrading/views/coming_soon_page.dart';
 import 'package:upgrading/views/search/beasiswa/detail_beasiswa_page.dart';
 import 'package:upgrading/widgets/beasiswa_card.dart';
 
@@ -222,7 +221,7 @@ class _BeasiswaPageState extends State<BeasiswaPage> {
             ),
             Expanded(
                 child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: FutureBuilder<QuerySnapshot<Object?>>(
                 future: ScholarshipsService().getScholarships(),
                 builder: (context, snapshot) {

@@ -402,7 +402,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1, color: Color(0xFFAAC0CD)),
+                      side: const BorderSide(width: 1, color: Color(0xFFAAC0CD)),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     backgroundColor: Colors.white,

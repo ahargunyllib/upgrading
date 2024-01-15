@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'package:upgrading/firebase_options.dart';
 import 'package:upgrading/views/coming_soon_page.dart';
 import 'package:upgrading/views/community/community_page.dart';
@@ -11,10 +13,14 @@ import 'package:upgrading/views/upgrading/konsultasi/konsultasi_page.dart';
 import 'package:upgrading/views/upgrading/konsultasi/profil_konsultan_page.dart';
 import 'package:upgrading/views/upgrading/konsultasi/session_payment_page.dart';
 import 'package:upgrading/views/upgrading/konsultasi/success_session_payment_page.dart';
+import 'package:upgrading/views/upgrading/video_persiapan/category_video_page.dart';
+import 'package:upgrading/views/upgrading/video_persiapan/home_video_persiapan_page.dart';
+import 'package:upgrading/views/upgrading/video_persiapan/list_video_page.dart';
 import 'package:upgrading/views/upgrading/video_persiapan/premium_payment_page.dart';
 import 'package:upgrading/views/profile/profile_page.dart';
 import 'package:upgrading/views/search/search_page.dart';
 import 'package:upgrading/views/upgrading/upgrading_page.dart';
+import 'package:upgrading/views/upgrading/video_persiapan/success_premium_payment_page.dart';
 import 'package:upgrading/views/upgrading/video_persiapan/video_persiapan_page.dart';
 
 import 'core/helper.dart';
@@ -72,6 +78,10 @@ class _MainAppState extends State<MainApp> {
         VideoPersiapanPage.routeName: (context) => const VideoPersiapanPage(),
         KonsultasiPage.routeName: (context) => const KonsultasiPage(),
         PremiumPaymentPage.routeName: (context) => const PremiumPaymentPage(),
+        SuccessPremiumPaymentPage.routeName: (context) => const SuccessPremiumPaymentPage(),
+        HomeVideoPersiapanPage.routeName: (context) => const HomeVideoPersiapanPage(),
+        CategoryVideoPage.routeName: (context) => const CategoryVideoPage(),
+        ListVideoPage.routeName: (context) => const ListVideoPage(),
         ProfilKonsultanPage.routeName: (context) => const ProfilKonsultanPage(),
         SessionPaymentPage.routeName: (context) => const SessionPaymentPage(),
         SuccessSessionPaymentPage.routeName: (context) =>
