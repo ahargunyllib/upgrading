@@ -1,82 +1,245 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../core/constant.dart';
+import '../../../core/constant.dart';
 
-class CommunityPage extends StatelessWidget {
+class CommunityPage extends StatefulWidget {
   static const routeName = "/community";
   const CommunityPage({super.key});
+
+  @override
+  State<CommunityPage> createState() => _CommunityPageState();
+}
+
+class _CommunityPageState extends State<CommunityPage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      bottomNavigationBar: Theme(
-          data: ThemeData(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
+      backgroundColor: const Color(0xFFF5F5F5),
+      appBar: AppBar(
+        backgroundColor: theme.primaryColor,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.chevron_left_rounded,
+            color: Colors.white,
           ),
-          child: BottomNavigationBar(
-            currentIndex: 2,
-            onTap: (index) {
-              Navigator.pushNamed(context, pages[index]);
-            },
-            type: BottomNavigationBarType.fixed,
-            selectedIconTheme: IconThemeData(color: theme.primaryColor),
-            selectedItemColor: theme.primaryColor,
-            selectedLabelStyle: GoogleFonts.poppins(
-                color: theme.primaryColor, fontWeight: FontWeight.w400),
-            selectedFontSize: 10,
-            unselectedIconTheme: IconThemeData(color: theme.focusColor),
-            unselectedItemColor: theme.focusColor,
-            unselectedLabelStyle: GoogleFonts.poppins(
-                color: theme.primaryColor, fontWeight: FontWeight.w400),
-            unselectedFontSize: 10,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: 'Search',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.people_outline),
-                label: 'Community',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.create_new_folder_outlined),
-                label: 'Upgrading',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person_2_outlined),
-                label: 'Profile',
-              ),
-            ],
-          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        centerTitle: true,
+        title: Text("Konsultasi",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w700)),
+      ),
+      bottomNavigationBar: Theme(
+        data: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          currentIndex: 2,
+          onTap: (index) {
+            Navigator.pushNamed(context, pages[index]);
+          },
+          type: BottomNavigationBarType.fixed,
+          selectedIconTheme: IconThemeData(color: theme.primaryColor),
+          selectedItemColor: theme.primaryColor,
+          selectedLabelStyle: GoogleFonts.poppins(
+              color: theme.primaryColor, fontWeight: FontWeight.w400),
+          selectedFontSize: 10,
+          unselectedIconTheme: IconThemeData(color: theme.focusColor),
+          unselectedItemColor: theme.focusColor,
+          unselectedLabelStyle: GoogleFonts.poppins(
+              color: theme.primaryColor, fontWeight: FontWeight.w400),
+          unselectedFontSize: 10,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people_outline),
+              label: 'Community',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.create_new_folder_outlined),
+              label: 'Upgrading',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_2_outlined),
+              label: 'Profile',
+            ),
+          ],
+        ),
+      ),
+      body: Column(
         children: [
-          Image.asset("assets/images/coming-soon-icon.png"),
-          const SizedBox(height: 12),
-          Text("COMING",
-              style: GoogleFonts.poppins(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w700,
-                  color: theme.primaryColor,
-                  height: 0.8)),
-          Text("SOON",
-              style: GoogleFonts.poppins(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w700,
-                  color: theme.primaryColor,
-                  letterSpacing: 16.8,
-                  height: 0.8)),
+          Container(
+            color: theme.primaryColor,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Container(
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("assets/images/community-icon.png"),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text("Community",
+                                  style: GoogleFonts.poppins(
+                                      color: theme.primaryColor,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700)),
+                              Text(
+                                "Gather and share information with those who have the same goals as you",
+                                style: GoogleFonts.poppins(
+                                    color: theme.primaryColor,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400),
+                                softWrap: true,
+                              ),
+                            ],
+                          ),
+                        )
+                      ]),
+                ),
+              ),
+            ),
+          ),
+          Container(height: 12, color: theme.primaryColor),
+          Container(
+            color: theme.primaryColor,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(children: [
+                Expanded(
+                  child: Container(
+                      height: 48,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.search, color: theme.primaryColor),
+                            const SizedBox(width: 4),
+                            Expanded(
+                              // TODO: BUG Search
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Search",
+                                  hintStyle: GoogleFonts.poppins(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: const Color(0xFF606060),
+                                  ),
+                                  focusedBorder: InputBorder.none,
+                                  enabledBorder: InputBorder.none,
+                                ),
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xFF0A0A0A)),
+                                ),
+                                obscureText: false,
+                                enableSuggestions: true,
+                                autocorrect: true,
+                              ),
+                            )
+                          ],
+                        ),
+                      )),
+                ),
+              ]),
+            ),
+          ),
+          Container(
+            height: 20,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
+              ),
+              color: theme.primaryColor,
+            ),
+          ),
+          TabBar(
+              labelStyle: GoogleFonts.poppins(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: const Color(0xFF9E9E9E),
+              ),
+              indicatorColor: theme.primaryColor,
+              indicatorWeight: 3,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              labelColor: theme.primaryColor,
+              indicatorSize: TabBarIndicatorSize.tab,
+              controller: _tabController,
+              tabs: const [
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 11),
+                  child: Text(
+                    "Scholarship Community",
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 11),
+                  child: Text("Organization Community", textAlign: TextAlign.center,),
+                ),
+              ]),
+          Expanded(
+            child: TabBarView(controller: _tabController, children: const [
+              Padding(
+                padding: EdgeInsets.all(16),
+                child: Center(),
+              ),
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Center(),
+              )
+            ]),
+          ),
         ],
       ),
-    ));
+    );
   }
 }
