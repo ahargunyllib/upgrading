@@ -15,7 +15,7 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      width: MediaQuery.of(context).size.width - 32 - 32,
+      width: MediaQuery.of(context).size.width - 32,
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(

@@ -131,27 +131,31 @@ class HomePage extends StatelessWidget {
                         color: theme.primaryColor,
                       ),
                     ),
-                    SizedBox(
-                      height: 120,
-                      child: ListView.builder(
-                          itemCount: freeFeatures.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(left: 16),
-                              child: InkWell(
-                                  onTap: () {
-                                    Navigator.pushNamed(context,
-                                        freeFeatures[index]['routeName']!);
-                                  },
-                                  child: CustomCard(
-                                      imagePath: freeFeatures[index]
-                                          ['imagePath']!,
-                                      title: freeFeatures[index]['title']!,
-                                      subtitle: freeFeatures[index]
-                                          ['subtitle']!)),
-                            );
-                          }),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: SizedBox(
+                        height: 120,
+                        child: ListView.builder(
+                            itemCount: freeFeatures.length,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                child: InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(context,
+                                          freeFeatures[index]['routeName']!);
+                                    },
+                                    child: CustomCard(
+                                        imagePath: freeFeatures[index]
+                                            ['imagePath']!,
+                                        title: freeFeatures[index]['title']!,
+                                        subtitle: freeFeatures[index]
+                                            ['subtitle']!)),
+                              );
+                            }),
+                      ),
                     ),
                   ],
                 ),
@@ -173,44 +177,47 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                SizedBox(
-                  height: 90,
-                  child: FutureBuilder<QuerySnapshot<Object?>>(
-                      future: ScholarshipsService().getScholarships(),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          List<Beasiswa> beasiswas = [];
-                          snapshot.data!.docs.forEach((element) {
-                            Beasiswa beasiswa = Beasiswa.fromMap(
-                                element.data() as Map<String, dynamic>,
-                                element.id);
-                            beasiswas.add(beasiswa);
-                          });
-                          return ListView.builder(
-                              itemCount: beasiswas.length,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(left: 16),
-                                  child: InkWell(
-                                      onTap: () {
-                                        Navigator.pushNamed(context,
-                                            DetailBeasiswaPage.routeName,
-                                            arguments: beasiswas[index]);
-                                      },
-                                      child: CustomItem(
-                                          imageUrl: beasiswas[index].logoUrl,
-                                          title: beasiswas[index].nama,
-                                          subtitle:
-                                              beasiswas[index].penyelenggara)),
-                                );
-                              });
-                        } else {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-                      }),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: SizedBox(
+                    height: 90,
+                    child: FutureBuilder<QuerySnapshot<Object?>>(
+                        future: ScholarshipsService().getScholarships(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            List<Beasiswa> beasiswas = [];
+                            snapshot.data!.docs.forEach((element) {
+                              Beasiswa beasiswa = Beasiswa.fromMap(
+                                  element.data() as Map<String, dynamic>,
+                                  element.id);
+                              beasiswas.add(beasiswa);
+                            });
+                            return ListView.builder(
+                                itemCount: beasiswas.length,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(left: 4),
+                                    child: InkWell(
+                                        onTap: () {
+                                          Navigator.pushNamed(context,
+                                              DetailBeasiswaPage.routeName,
+                                              arguments: beasiswas[index]);
+                                        },
+                                        child: CustomItem(
+                                            imageUrl: beasiswas[index].logoUrl,
+                                            title: beasiswas[index].nama,
+                                            subtitle: beasiswas[index]
+                                                .penyelenggara)),
+                                  );
+                                });
+                          } else {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        }),
+                  ),
                 ),
                 const SizedBox(height: 12),
                 InkWell(
