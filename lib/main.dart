@@ -1,5 +1,4 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:upgrading/firebase_options.dart';
@@ -27,6 +26,8 @@ import 'core/helper.dart';
 import 'themes/app_theme.dart';
 import 'views/auth/register_page.dart';
 import 'views/auth/login_page.dart';
+import 'views/search/organisasi/detail_organisasi_page.dart';
+import 'views/search/organisasi/organisasi_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -89,6 +90,8 @@ class _MainAppState extends State<MainApp> {
         ChatPage.routeName: (context) => const ChatPage(),
         BeasiswaPage.routeName: (context) => const BeasiswaPage(),
         DetailBeasiswaPage.routeName: (context) => const DetailBeasiswaPage(),
+        OrganisasiPage.routeName: (context) => const OrganisasiPage(),
+        DetailOrganisasiPage.routeName: (context) => const DetailOrganisasiPage(),
       },
     );
   }

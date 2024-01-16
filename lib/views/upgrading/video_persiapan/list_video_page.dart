@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/models/videos_model.dart';
 import 'package:upgrading/views/coming_soon_page.dart';
-import 'package:upgrading/views/upgrading/video_persiapan/video_player_page.dart';
 
 import '../../../core/constant.dart';
 import '../../../widgets/video_card.dart';

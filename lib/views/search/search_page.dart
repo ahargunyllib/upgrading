@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upgrading/views/coming_soon_page.dart';
+
 import 'package:upgrading/views/search/beasiswa/beasiswa_page.dart';
+import 'package:upgrading/views/search/organisasi/organisasi_page.dart';
 
 import '../../core/constant.dart';
 
@@ -93,7 +94,7 @@ class SearchPage extends StatelessWidget {
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                   onTap: () {
-                    Navigator.of(context).pushNamed(ComingSoonPage.routeName);
+                    Navigator.of(context).pushNamed(OrganisasiPage.routeName);
                   },
                 )
               ],
