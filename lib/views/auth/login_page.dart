@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
           Image.asset("assets/images/logo-text.png"),
           const SizedBox(height: 8),
           Text(
-            'Silakan masukkan Email dan Password Anda',
+            'Please enter your Email and Password',
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
                 fontSize: 12,
