@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:upgrading/widgets/custom_card.dart';
 
 import '../../../core/constant.dart';
 
@@ -94,48 +95,13 @@ class _CommunityPageState extends State<CommunityPage>
         children: [
           Container(
             color: theme.primaryColor,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Container(
-                decoration: ShapeDecoration(
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                  child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset("assets/images/community-icon.png"),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text("Community",
-                                  style: GoogleFonts.poppins(
-                                      color: theme.primaryColor,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700)),
-                              Text(
-                                "Gather and share information with those who have the same goals as you",
-                                style: GoogleFonts.poppins(
-                                    color: theme.primaryColor,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w400),
-                                softWrap: true,
-                              ),
-                            ],
-                          ),
-                        )
-                      ]),
-                ),
-              ),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: CustomCard(
+                  imagePath: "assets/images/community-icon.png",
+                  title: "Community",
+                  subtitle:
+                      "Gather and share information with those who have the same goals as you"),
             ),
           ),
           Container(height: 12, color: theme.primaryColor),
@@ -223,7 +189,10 @@ class _CommunityPageState extends State<CommunityPage>
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 11),
-                  child: Text("Organization Community", textAlign: TextAlign.center,),
+                  child: Text(
+                    "Organization Community",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ]),
           Expanded(

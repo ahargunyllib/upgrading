@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/models/organization_model.dart';
 import 'package:upgrading/views/search/organisasi/detail_organisasi_page.dart';
+import 'package:upgrading/widgets/custom_card.dart';
 import 'package:upgrading/widgets/organisasi_card.dart';
 
 import '../../../core/constant.dart';
@@ -93,55 +94,9 @@ class _OrganisasiPageState extends State<OrganisasiPage> {
           children: [
             Container(
               color: theme.primaryColor,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Container(
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 24),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            "assets/images/organisasi-icon.png",
-                            width: 85,
-                            height: 76,
-                            fit: BoxFit.contain,
-                          ),
-                          const SizedBox(
-                            width: 12,
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text("Organization",
-                                    style: GoogleFonts.poppins(
-                                        color: theme.primaryColor,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700)),
-                                Text(
-                                  "Develop yourself and achieve various things experience by joining to the organization of your choice",
-                                  style: GoogleFonts.poppins(
-                                      color: theme.primaryColor,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400),
-                                  softWrap: true,
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: CustomCard(imagePath: "assets/images/organisasi-icon.png", title: "Organization", subtitle: "Develop yourself and achieve various things experience by joining to the organization of your choice"),
               ),
             ),
             Container(height: 12, color: theme.primaryColor),

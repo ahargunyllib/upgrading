@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/services/scholarship_service.dart';
 import 'package:upgrading/views/search/beasiswa/detail_beasiswa_page.dart';
 import 'package:upgrading/widgets/beasiswa_card.dart';
+import 'package:upgrading/widgets/custom_card.dart';
 
 import '../../../core/constant.dart';
 import '../../../models/scholarships_model.dart';
@@ -93,55 +94,9 @@ class _BeasiswaPageState extends State<BeasiswaPage> {
           children: [
             Container(
               color: theme.primaryColor,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Container(
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 24),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            "assets/images/beasiswa-icon.png",
-                            width: 85,
-                            height: 76,
-                            fit: BoxFit.contain,
-                          ),
-                          const SizedBox(
-                            width: 12,
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text("Beasiswa Pendidikan",
-                                    style: GoogleFonts.poppins(
-                                        color: theme.primaryColor,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700)),
-                                Text(
-                                  "Jelajahi berbagai beasiswa dan temukan yang sesuai untuk Anda",
-                                  style: GoogleFonts.poppins(
-                                      color: theme.primaryColor,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400),
-                                  softWrap: true,
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: CustomCard(imagePath: "assets/images/beasiswa-icon.png", title: "Beasiswa Pendidikan", subtitle: "Jelajahi berbagai beasiswa dan temukan yang sesuai untuk Anda"),
               ),
             ),
             Container(height: 12, color: theme.primaryColor),

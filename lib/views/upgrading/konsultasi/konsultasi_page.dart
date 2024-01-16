@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/views/upgrading/konsultasi/list_konsultan_page.dart';
 import 'package:upgrading/views/upgrading/konsultasi/riwayat_konsultasi_page.dart';
+import 'package:upgrading/widgets/custom_card.dart';
 
 import '../../../core/constant.dart';
 
@@ -96,47 +97,9 @@ class _KonsultasiPageState extends State<KonsultasiPage>
         children: [
           Container(
             color: theme.primaryColor,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Container(
-                decoration: ShapeDecoration(
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                  child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset("assets/images/consultation-icon.png"),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text("Konsultasi",
-                                  style: GoogleFonts.poppins(
-                                      color: theme.primaryColor,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700)),
-                              Text(
-                                "Konsultasi dengan penerima beasiswa atau anggota organisasi yang Anda inginkan",
-                                style: GoogleFonts.poppins(
-                                    color: theme.primaryColor,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w400),
-                                softWrap: true,
-                              ),
-                            ],
-                          ),
-                        )
-                      ]),
-                ),
-              ),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: CustomCard(imagePath: "assets/images/consultation-icon.png", title: "Educational Scholarships", subtitle: "Explore various scholarships and find what works for you"),
             ),
           ),
           Container(height: 12, color: theme.primaryColor),

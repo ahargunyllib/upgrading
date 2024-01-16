@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/services/video_service.dart';
 import 'package:upgrading/views/upgrading/video_persiapan/category_video_page.dart';
+import 'package:upgrading/widgets/custom_card.dart';
 import 'package:upgrading/widgets/video_card.dart';
 
 import '../../../core/constant.dart';
@@ -87,52 +88,9 @@ class HomeVideoPersiapanPage extends StatelessWidget {
           children: [
             Container(
               color: theme.primaryColor,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Container(
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 16, horizontal: 16),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            "assets/images/video-preparation-icon.png",
-                            height: 76,
-                            width: 76,
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text("Video Persiapan",
-                                    style: GoogleFonts.poppins(
-                                        color: theme.primaryColor,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700)),
-                                Text(
-                                  "Akses konten video berisi persiapan beasiswa atau organisasi yang Anda inginkan",
-                                  style: GoogleFonts.poppins(
-                                      color: theme.primaryColor,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400),
-                                  softWrap: true,
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: CustomCard(imagePath: "assets/images/video-preparation-icon.png", title: "Video Persiapan", subtitle: "Akses konten video berisi persiapan beasiswa atau organisasi yang Anda inginkan"),
               ),
             ),
             Container(height: 12, color: theme.primaryColor),

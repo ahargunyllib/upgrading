@@ -19,9 +19,9 @@ class UserService {
     });
   }
 
-  Future gettingUserData(String email) async {
-    QuerySnapshot snapshot =
-        await userCollection.where("email", isEqualTo: email).get();
+  Future<QuerySnapshot<Object?>> gettingUserData(String email) async {
+    Future<QuerySnapshot<Object?>> snapshot =
+        userCollection.where("email", isEqualTo: email).get();
     return snapshot;
   }
 
