@@ -30,7 +30,7 @@ class HomeVideoPersiapanPage extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        title: Text("Video Persiapan",
+        title: Text("Preparation Video",
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
                 color: Colors.white,
@@ -90,7 +90,7 @@ class HomeVideoPersiapanPage extends StatelessWidget {
               color: theme.primaryColor,
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
-                child: CustomCard(imagePath: "assets/images/video-preparation-icon.png", title: "Video Persiapan", subtitle: "Akses konten video berisi persiapan beasiswa atau organisasi yang Anda inginkan"),
+                child: CustomCard(imagePath: "assets/images/video-preparation-icon.png", title: "Preparation Video", subtitle: "Access video content of scholarship preparation or organization that you want"),
               ),
             ),
             Container(height: 12, color: theme.primaryColor),
@@ -162,7 +162,7 @@ class HomeVideoPersiapanPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('Topik Video',
+                  Text('Video Topics',
                       style: GoogleFonts.poppins(
                         color: theme.primaryColor,
                         fontSize: 14,
@@ -180,7 +180,7 @@ class HomeVideoPersiapanPage extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, CategoryVideoPage.routeName,
-                          arguments: "Bahasa Inggris");
+                          arguments: "English Language");
                     },
                     child: Container(
                         decoration: ShapeDecoration(
@@ -199,7 +199,7 @@ class HomeVideoPersiapanPage extends StatelessWidget {
                                     "assets/images/bahasa-inggris-logo.png"),
                                 const SizedBox(height: 8),
                                 Text(
-                                  'Bahasa\nInggris',
+                                  'English\nLanguage',
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.poppins(
                                     color: theme.primaryColor,
@@ -213,7 +213,7 @@ class HomeVideoPersiapanPage extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, CategoryVideoPage.routeName,
-                          arguments: "Penulisan Esai");
+                          arguments: "Essay Writing");
                     },
                     child: Container(
                         decoration: ShapeDecoration(
@@ -231,7 +231,7 @@ class HomeVideoPersiapanPage extends StatelessWidget {
                                     "assets/images/penulisan-esai-logo.png"),
                                 const SizedBox(height: 8),
                                 Text(
-                                  'Penulisan\nEsai',
+                                  'Essay\nWriting',
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.poppins(
                                     color: theme.primaryColor,
@@ -277,7 +277,7 @@ class HomeVideoPersiapanPage extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, CategoryVideoPage.routeName,
-                          arguments: "Wawancara");
+                          arguments: "Interview");
                     },
                     child: Container(
                         decoration: ShapeDecoration(
@@ -294,7 +294,7 @@ class HomeVideoPersiapanPage extends StatelessWidget {
                                 Image.asset("assets/images/wawancara-logo.png"),
                                 const SizedBox(height: 8),
                                 Text(
-                                  'Wawancara',
+                                  'Interview',
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.poppins(
                                     color: theme.primaryColor,
@@ -314,7 +314,7 @@ class HomeVideoPersiapanPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('Video Populer',
+                  Text('Populer Videos',
                       style: GoogleFonts.poppins(
                         color: theme.primaryColor,
                         fontSize: 14,

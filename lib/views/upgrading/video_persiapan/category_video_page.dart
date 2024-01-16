@@ -159,7 +159,7 @@ class CategoryVideoPage extends StatelessWidget {
                             element.data() as Map<String, dynamic>, element.id);
                         videos.add(video);
                       });
-                      if (topic == "Penulisan Esai") {
+                      if (topic == "Essay Writing") {
                         return InkWell(onTap: () => Navigator.pushNamed(context, ListVideoPage.routeName, arguments: videos[0]),child: VideoCard(video: videos[0]));
                       } else {
                         return Column(

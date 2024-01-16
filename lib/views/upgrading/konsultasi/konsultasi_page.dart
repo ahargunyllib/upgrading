@@ -41,7 +41,7 @@ class _KonsultasiPageState extends State<KonsultasiPage>
           },
         ),
         centerTitle: true,
-        title: Text("Konsultasi",
+        title: Text("Consultation",
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
                 color: Colors.white,

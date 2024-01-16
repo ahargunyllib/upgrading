@@ -81,7 +81,7 @@ class SuccessPremiumPaymentPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Pembayaran Berhasil",
+                            Text("Payment success",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.poppins(
                                     color: Colors.white,
@@ -101,7 +101,7 @@ class SuccessPremiumPaymentPage extends StatelessWidget {
                                 )),
                             const SizedBox(height: 16),
                             Text(
-                              'Akses Fitur Premium',
+                              'Access premium features',
                               style: GoogleFonts.poppins(
                                 color: Colors.white,
                                 fontSize: 12,
@@ -147,7 +147,7 @@ class SuccessPremiumPaymentPage extends StatelessWidget {
                                 )),
                             const SizedBox(height: 16),
                             Text(
-                                "Halaman akan langsung berganti ke bagian \"Video Persiapan\"",
+                                "Click the button below to\naccess learning videos",
                                 textAlign: TextAlign.center,
                                 softWrap: true,
                                 style: GoogleFonts.poppins(
@@ -171,7 +171,7 @@ class SuccessPremiumPaymentPage extends StatelessWidget {
                       backgroundColor: theme.primaryColor,
                     ),
                     child: Text(
-                      "Mulai Menonton Video Persiapan",
+                      "Start Watching Preparation Videos",
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: 12,

@@ -80,7 +80,7 @@ class _PremiumPaymentPageState extends State<PremiumPaymentPage> {
           },
         ),
         centerTitle: true,
-        title: Text("Pembayaran",
+        title: Text("Payment",
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
                 color: Colors.white,
@@ -107,7 +107,7 @@ class _PremiumPaymentPageState extends State<PremiumPaymentPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Informasi Pembayaran",
+                      Text("Payment Information",
                           style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontSize: 16,
@@ -126,7 +126,7 @@ class _PremiumPaymentPageState extends State<PremiumPaymentPage> {
                           )),
                       const SizedBox(height: 16),
                       Text(
-                        'Akses Fitur Premium',
+                        'Access premium features',
                         style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontSize: 14,
@@ -176,7 +176,7 @@ class _PremiumPaymentPageState extends State<PremiumPaymentPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Metode Pembayaran",
+                            Text("Payment method",
                                 style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontSize: 16,
@@ -194,7 +194,7 @@ class _PremiumPaymentPageState extends State<PremiumPaymentPage> {
                                   ),
                                 )),
                             const SizedBox(height: 16),
-                            Text("Transfer Virtual Account",
+                            Text("Virtual Account Transfer",
                                 style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontSize: 12,
@@ -474,7 +474,7 @@ class _PremiumPaymentPageState extends State<PremiumPaymentPage> {
                     Navigator.of(context).pushReplacementNamed(
                         SuccessPremiumPaymentPage.routeName);
                   },
-                  child: Text("Bayar",
+                  child: Text("Pay",
                       style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontSize: 16,

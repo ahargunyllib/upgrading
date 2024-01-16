@@ -64,14 +64,14 @@ class UpgradingPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Akses Fitur Premium"),
+                const Text("Access premium features"),
                 const SizedBox(height: 33),
                 ListTile(
                   leading:
                       Image.asset("assets/images/video-preparation-icon.png"),
-                  title: const Text("Video Persiapan"),
+                  title: const Text("Preparation Video"),
                   subtitle: const Text(
-                      "Akses konten video berisi persiapan beasiswa atau organisasi yang Anda inginkan"),
+                      "Access video content of scholarship preparation or organization that you want"),
                   contentPadding: const EdgeInsets.all(16),
                   onTap: () {
                     Navigator.of(context)
@@ -81,9 +81,9 @@ class UpgradingPage extends StatelessWidget {
                 const SizedBox(height: 24),
                 ListTile(
                   leading: Image.asset("assets/images/consultation-icon.png"),
-                  title: const Text("Konsultasi"),
+                  title: const Text("Consultation"),
                   subtitle: const Text(
-                      "Konsultasi dengan penerima beasiswa atau anggota organisasi yang Anda inginkan"),
+                      "Consultation with awardee of scholarships or organizational membership that you want"),
                   contentPadding: const EdgeInsets.all(16),
                   onTap: () {
                     Navigator.of(context).pushNamed(KonsultasiPage.routeName);

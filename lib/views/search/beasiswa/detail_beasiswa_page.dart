@@ -44,7 +44,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
           },
         ),
         centerTitle: true,
-        title: Text("Detail Beasiswa",
+        title: Text("Scholarship detail",
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
                 color: Colors.white,
@@ -145,7 +145,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
                                   side: BorderSide(color: theme.primaryColor),
                                   borderRadius: BorderRadius.circular(8)),
                             ),
-                            child: const Text('Deskripsi'),
+                            child: const Text('Description'),
                           ),
                           Container(
                             padding: const EdgeInsets.symmetric(
@@ -156,7 +156,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
                                   side: BorderSide(color: theme.primaryColor),
                                   borderRadius: BorderRadius.circular(8)),
                             ),
-                            child: const Text('Persyaratan'),
+                            child: const Text('Requirements'),
                           ),
                           Container(
                             padding: const EdgeInsets.symmetric(
@@ -167,7 +167,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
                                   side: BorderSide(color: theme.primaryColor),
                                   borderRadius: BorderRadius.circular(8)),
                             ),
-                            child: const Text('Dokumen'),
+                            child: const Text('Document'),
                           )
                         ]),
                   ],
@@ -199,7 +199,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("Tentang ${beasiswa.nama}",
+                                Text("About ${beasiswa.nama}",
                                     style: GoogleFonts.poppins(
                                         color: theme.primaryColor,
                                         fontSize: 10,
@@ -248,7 +248,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("Komponen Beasiswa",
+                                Text("Scholarship Components",
                                     style: GoogleFonts.poppins(
                                         color: theme.primaryColor,
                                         fontSize: 10,
@@ -305,7 +305,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Persyaratan Umum",
+                            Text("General Requirements",
                                 style: GoogleFonts.poppins(
                                     color: theme.primaryColor,
                                     fontSize: 10,
@@ -359,7 +359,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Persyaratan Dokumen",
+                            Text("Document Requirements",
                                 style: GoogleFonts.poppins(
                                     color: theme.primaryColor,
                                     fontSize: 10,
@@ -411,7 +411,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
                     Navigator.of(context)
                         .pushReplacementNamed(ComingSoonPage.routeName);
                   },
-                  child: Text("Bergabung ke Komunitas",
+                  child: Text("Join to Community",
                       style: GoogleFonts.poppins(
                           color: theme.primaryColor,
                           fontSize: 16,
@@ -435,7 +435,7 @@ class _DetailBeasiswaPageState extends State<DetailBeasiswaPage>
                     Navigator.of(context)
                         .pushReplacementNamed(ComingSoonPage.routeName);
                   },
-                  child: Text("Daftar Sekarang",
+                  child: Text("Register Now",
                       style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontSize: 16,

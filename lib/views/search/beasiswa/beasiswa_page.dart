@@ -38,7 +38,7 @@ class _BeasiswaPageState extends State<BeasiswaPage> {
             },
           ),
           centerTitle: true,
-          title: Text("Beasiswa Pendidikan",
+          title: Text("Educational Scholarships",
               // textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                   color: Colors.white,
@@ -96,7 +96,7 @@ class _BeasiswaPageState extends State<BeasiswaPage> {
               color: theme.primaryColor,
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
-                child: CustomCard(imagePath: "assets/images/beasiswa-icon.png", title: "Beasiswa Pendidikan", subtitle: "Jelajahi berbagai beasiswa dan temukan yang sesuai untuk Anda"),
+                child: CustomCard(imagePath: "assets/images/beasiswa-icon.png", title: "Educational Scholarships", subtitle: "Explore various scholarships and find what works for you"),
               ),
             ),
             Container(height: 12, color: theme.primaryColor),

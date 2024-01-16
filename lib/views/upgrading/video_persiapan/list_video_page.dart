@@ -115,7 +115,7 @@ class ListVideoPage extends StatelessWidget {
                   child: Column(children: [
                     Row(children: [
                       Text(
-                        'Daftar Video',
+                        'List of Videos',
                         style: GoogleFonts.poppins(
                           color: theme.primaryColor,
                           fontSize: 12,

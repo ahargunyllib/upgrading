@@ -65,7 +65,7 @@ class SearchPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Ingin mencari apa?"),
+                const Text("What are you looking for?"),
                 const SizedBox(height: 33),
                 ListTile(
                   leading: Image.asset(
@@ -74,7 +74,7 @@ class SearchPage extends StatelessWidget {
                     // width: 150,
                     fit: BoxFit.contain,
                   ),
-                  title: const Text("Beasiswa Pendidikan"),
+                  title: const Text("Educational Scholarships"),
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                   horizontalTitleGap: 12,
@@ -90,7 +90,7 @@ class SearchPage extends StatelessWidget {
                     width: 61,
                     fit: BoxFit.contain,
                   ),
-                  title: const Text("Organisasi"),
+                  title: const Text("Organization"),
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                   onTap: () {

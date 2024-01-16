@@ -85,18 +85,18 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                         children: [
                           Image.asset("assets/images/video-preparation-icon.png"),
                           const SizedBox(height: 8),
-                          Text("Akses Fitur Premium",
+                          Text("Access premium features",
                               style: GoogleFonts.poppins(
                                   color: Colors.white,
                                   fontSize: 24,
                                   fontWeight: FontWeight.w700)),
-                          Text("Video Persiapan",
+                          Text("Preparation Video",
                               style: GoogleFonts.poppins(
                                   color: Colors.white,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500)),
                           const SizedBox(height: 12),
-                          Text("Paket sudah termasuk:",
+                          Text("Package includes:",
                               style: GoogleFonts.poppins(
                                   color: Colors.white,
                                   fontSize: 10,
@@ -109,7 +109,7 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                                 const Icon(Icons.check_circle,
                                     color: Colors.white),
                                 const SizedBox(width: 8),
-                                Text("Akses konten video penulisan esai",
+                                Text("Access essay writing video content",
                                     style: GoogleFonts.poppins(
                                         color: Colors.white,
                                         fontSize: 10,
@@ -123,7 +123,7 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                                 const Icon(Icons.check_circle,
                                     color: Colors.white),
                                 const SizedBox(width: 8),
-                                Text("Akses konten video penulisan esai",
+                                Text("Access interview preparation video content",
                                     style: GoogleFonts.poppins(
                                         color: Colors.white,
                                         fontSize: 10,
@@ -137,7 +137,7 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                                 const Icon(Icons.check_circle,
                                     color: Colors.white),
                                 const SizedBox(width: 8),
-                                Text("Akses konten video penulisan esai",
+                                Text("Access English language learning video content",
                                     style: GoogleFonts.poppins(
                                         color: Colors.white,
                                         fontSize: 10,
@@ -151,7 +151,7 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                                 const Icon(Icons.check_circle,
                                     color: Colors.white),
                                 const SizedBox(width: 8),
-                                Text("Akses konten video penulisan esai",
+                                Text("Access public speaking learning video content",
                                     style: GoogleFonts.poppins(
                                         color: Colors.white,
                                         fontSize: 10,
@@ -187,7 +187,7 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                 const SizedBox(height: 16),
                 GestureDetector(
                   child: Text(
-                    "Kembali",
+                    "Back",
                     style: GoogleFonts.poppins(
                       color: theme.primaryColor,
                       fontSize: 12,
