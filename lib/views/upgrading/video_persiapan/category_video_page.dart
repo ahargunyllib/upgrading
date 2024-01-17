@@ -106,7 +106,6 @@ class CategoryVideoPage extends StatelessWidget {
                               Icon(Icons.search, color: theme.primaryColor),
                               const SizedBox(width: 4),
                               Expanded(
-                                // TODO: BUG Search
                                 child: TextField(
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
@@ -115,6 +114,7 @@ class CategoryVideoPage extends StatelessWidget {
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
                                       color: const Color(0xFF606060),
+                                      height: 0.12,
                                     ),
                                     focusedBorder: InputBorder.none,
                                     enabledBorder: InputBorder.none,
@@ -123,7 +123,8 @@ class CategoryVideoPage extends StatelessWidget {
                                     textStyle: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500,
-                                        color: Color(0xFF0A0A0A)),
+                                        color: Color(0xFF0A0A0A),
+                                        height: 0.12,),
                                   ),
                                   obscureText: false,
                                   enableSuggestions: true,

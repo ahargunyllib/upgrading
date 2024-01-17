@@ -14,6 +14,8 @@ class UserService {
       "fullName": fullName,
       "email": email,
       "chats": [],
+      "beasiswa_group_chats": [],
+      "organisasi_group_chats": [],
       "profilePic": "",
       "uid": uid
     });

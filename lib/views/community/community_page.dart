@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:upgrading/models/organization_model.dart';
+import 'package:upgrading/services/organzation_service.dart';
 import 'package:upgrading/views/community/community_chat_page.dart';
 import 'package:upgrading/widgets/custom_card.dart';
 
@@ -132,7 +134,6 @@ class _CommunityPageState extends State<CommunityPage>
                             Icon(Icons.search, color: theme.primaryColor),
                             const SizedBox(width: 4),
                             Expanded(
-                              // TODO: BUG Search
                               child: TextField(
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
@@ -141,15 +142,18 @@ class _CommunityPageState extends State<CommunityPage>
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400,
                                     color: const Color(0xFF606060),
+                                    height: 0.12,
                                   ),
                                   focusedBorder: InputBorder.none,
                                   enabledBorder: InputBorder.none,
                                 ),
                                 style: GoogleFonts.poppins(
                                   textStyle: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xFF0A0A0A)),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xFF0A0A0A),
+                                    height: 0.12,
+                                  ),
                                 ),
                                 obscureText: false,
                                 enableSuggestions: true,
@@ -218,7 +222,6 @@ class _CommunityPageState extends State<CommunityPage>
                             .forEach((chatRoomId) {
                           groupIds.add(chatRoomId);
                         });
-
                         return ListView.builder(
                             itemCount: groupIds.length,
                             itemBuilder: (context, index) {
@@ -252,9 +255,8 @@ class _CommunityPageState extends State<CommunityPage>
                                                 subtitle:
                                                     beasiswa.penyelenggara)),
                                       );
-                                    } else {
-                                      return Container();
                                     }
+                                    return Container();
                                   });
                             });
                       }
@@ -264,9 +266,64 @@ class _CommunityPageState extends State<CommunityPage>
                     }),
               ),
               Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Center(),
-              )
+                padding: const EdgeInsets.all(16),
+                child: FutureBuilder(
+                    future:
+                        UserService(uid: FirebaseAuth.instance.currentUser!.uid)
+                            .getAllChatRooms(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        List<String> groupIds = [];
+                        (snapshot.data!.data() as Map<String, dynamic>)[
+                                'organisasi_group_chats']
+                            .forEach((chatRoomId) {
+                          groupIds.add(chatRoomId);
+                        });
+                        return ListView.builder(
+                            itemCount: groupIds.length,
+                            itemBuilder: (context, index) {
+                              return FutureBuilder(
+                                  future: OrganizationService()
+                                      .getOrganization(groupIds[index]),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasData) {
+                                      Organisasi organisasi =
+                                          Organisasi.fromMap(
+                                              snapshot.data!.data()
+                                                  as Map<String, dynamic>,
+                                              snapshot.data!.id);
+                                      return Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 8),
+                                        child: InkWell(
+                                            onTap: () {
+                                              Navigator.of(context).pushNamed(
+                                                  CommunityChatPage.routeName,
+                                                  arguments: {
+                                                    'groupId': organisasi.uid,
+                                                    'imageUrl':
+                                                        organisasi.logoUrl,
+                                                    'groupName':
+                                                        organisasi.nama,
+                                                    'type': 'organisasi'
+                                                  });
+                                            },
+                                            child: CustomItem(
+                                                imageUrl: organisasi.logoUrl,
+                                                title: organisasi.nama,
+                                                subtitle:
+                                                    organisasi.penyelenggara)),
+                                      );
+                                    }
+                                    return Container();
+                                  });
+                            });
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }),
+              ),
             ]),
           ),
         ],

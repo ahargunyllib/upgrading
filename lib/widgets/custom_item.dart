@@ -40,7 +40,7 @@ class CustomItem extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     side: const BorderSide(
                       width: 1,
-                      strokeAlign: BorderSide.strokeAlignOutside,
+                      strokeAlign: BorderSide.strokeAlignInside,
                       color: Color(0xFFAAC0CD),
                     ),
                     borderRadius: BorderRadius.circular(8),

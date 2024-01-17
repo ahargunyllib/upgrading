@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/models/scholarships_model.dart';
 import 'package:upgrading/views/coming_soon_page.dart';
 import 'package:upgrading/views/community/community_chat_page.dart';
-import 'package:upgrading/views/community/community_page.dart';
 import 'package:upgrading/widgets/beasiswa_card.dart';
 
 import '../../../core/constant.dart';

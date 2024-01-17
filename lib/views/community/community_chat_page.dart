@@ -228,7 +228,6 @@ class CommunityChatPageState extends State<CommunityChatPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
-                            // TODO: BUG text field size
                             child: SizedBox(
                               height: 16,
                               child: TextField(
@@ -242,7 +241,7 @@ class CommunityChatPageState extends State<CommunityChatPage> {
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
-                                    // height: 0.12,
+                                    height: 0.12,
                                   ),
                                   focusedBorder: InputBorder.none,
                                   enabledBorder: InputBorder.none,
@@ -252,7 +251,7 @@ class CommunityChatPageState extends State<CommunityChatPage> {
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
-                                    // height: 0.12,
+                                    height: 0.12,
                                   ),
                                 ),
                                 obscureText: false,

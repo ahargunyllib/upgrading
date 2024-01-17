@@ -8,7 +8,6 @@ import 'package:upgrading/widgets/organisasi_card.dart';
 import 'package:upgrading/widgets/review_card.dart';
 
 import '../../../core/constant.dart';
-import '../../community/community_page.dart';
 
 class DetailOrganisasiPage extends StatefulWidget {
   static const routeName = "/detail-organisasi";
@@ -117,6 +116,8 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OrganisasiCard(organisasi: organisasi),
                     const SizedBox(height: 32),
@@ -130,10 +131,11 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
                             color: theme.primaryColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8))),
-                        // labelColor: theme.primaryColor,
                         controller: _tabController,
-                        labelPadding: EdgeInsets.zero,
-                        padding: EdgeInsets.zero,
+                        labelPadding: const EdgeInsets.symmetric(horizontal: 0),
+                        indicatorPadding:
+                            const EdgeInsets.symmetric(horizontal: 0),
+                        padding: const EdgeInsets.symmetric(horizontal: 0),
                         unselectedLabelStyle: GoogleFonts.poppins(
                           fontSize: 10,
                           fontWeight: FontWeight.w700,
@@ -142,7 +144,7 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
                         tabs: [
                           Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 8),
+                                horizontal: 8, vertical: 8),
                             decoration: ShapeDecoration(
                               // color: Colors.white,
                               shape: RoundedRectangleBorder(
@@ -153,7 +155,7 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
                           ),
                           Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 8),
+                                horizontal: 8, vertical: 8),
                             decoration: ShapeDecoration(
                               // color: theme.primaryColor,
                               shape: RoundedRectangleBorder(
@@ -164,7 +166,7 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
                           ),
                           Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 8),
+                                horizontal: 8, vertical: 8),
                             decoration: ShapeDecoration(
                               // color: theme.primaryColor,
                               shape: RoundedRectangleBorder(
@@ -175,7 +177,7 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
                           ),
                           Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 8),
+                                horizontal: 8, vertical: 8),
                             decoration: ShapeDecoration(
                               // color: theme.primaryColor,
                               shape: RoundedRectangleBorder(
@@ -422,7 +424,8 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
                         itemCount: organisasi.faqs.length,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.only(bottom:16, left: 1, right: 1),
+                            padding: const EdgeInsets.only(
+                                bottom: 16, left: 1, right: 1),
                             child: FaqCard(
                               question: organisasi.faqs[index]['question'],
                               answer: organisasi.faqs[index]['answer'],
@@ -448,11 +451,11 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
                   onPressed: () {
                     Navigator.of(context)
                         .pushNamed(CommunityChatPage.routeName, arguments: {
-                          'groupId': organisasi.uid,
-                          'imageUrl': organisasi.logoUrl,
-                          'groupName': organisasi.nama,
-                          'type': 'organisasi'
-                        });
+                      'groupId': organisasi.uid,
+                      'imageUrl': organisasi.logoUrl,
+                      'groupName': organisasi.nama,
+                      'type': 'organisasi'
+                    });
                   },
                   child: Text("Join the Community",
                       style: GoogleFonts.poppins(
@@ -475,8 +478,7 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
                     backgroundColor: theme.primaryColor,
                   ),
                   onPressed: () {
-                    
-                        Navigator.of(context)
+                    Navigator.of(context)
                         .pushReplacementNamed(ComingSoonPage.routeName);
                   },
                   child: Text("Register Now",

@@ -174,7 +174,6 @@ class _ChatPageState extends State<ChatPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
-                            // TODO: BUG text field size
                             child: SizedBox(
                               height: 16,
                               child: TextField(
@@ -188,7 +187,7 @@ class _ChatPageState extends State<ChatPage> {
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
-                                    // height: 0.12,
+                                    height: 0.12,
                                   ),
                                   focusedBorder: InputBorder.none,
                                   enabledBorder: InputBorder.none,
@@ -198,7 +197,7 @@ class _ChatPageState extends State<ChatPage> {
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
-                                    // height: 0.12,
+                                    height: 0.12,
                                   ),
                                 ),
                                 obscureText: false,

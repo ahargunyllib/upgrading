@@ -267,7 +267,7 @@ class HomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 SizedBox(
-                  height: 165,
+                  height: 170,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: FutureBuilder<QuerySnapshot<Object?>>(
@@ -367,8 +367,8 @@ class HomePage extends StatelessWidget {
                               context, VideoPersiapanPage.routeName);
                         },
                         child: Container(
-                          width: 148,
-                          height: 148,
+                          width: 155,
+                          height: 155,
                           padding: const EdgeInsets.all(12),
                           decoration: ShapeDecoration(
                             color: Colors.white,
@@ -389,13 +389,15 @@ class HomePage extends StatelessWidget {
                                 width: 96,
                                 fit: BoxFit.cover,
                               ),
-                              Text(
-                                'Preparation Video',
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.poppins(
-                                  color: theme.primaryColor,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w700,
+                              Expanded(
+                                child: Text(
+                                  'Preparation Video',
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.poppins(
+                                    color: theme.primaryColor,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               )
                             ],
@@ -408,8 +410,8 @@ class HomePage extends StatelessWidget {
                               context, KonsultasiPage.routeName);
                         },
                         child: Container(
-                          width: 148,
-                          height: 148,
+                          width: 155,
+                          height: 155,
                           padding: const EdgeInsets.all(12),
                           decoration: ShapeDecoration(
                             color: Colors.white,

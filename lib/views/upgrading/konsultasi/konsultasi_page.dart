@@ -99,7 +99,11 @@ class _KonsultasiPageState extends State<KonsultasiPage>
             color: theme.primaryColor,
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              child: CustomCard(imagePath: "assets/images/consultation-icon.png", title: "Consultation", subtitle: "Consultation with awardee of scholarships or organizational membership that you want"),
+              child: CustomCard(
+                  imagePath: "assets/images/consultation-icon.png",
+                  title: "Consultation",
+                  subtitle:
+                      "Consultation with awardee of scholarships or organizational membership that you want"),
             ),
           ),
           Container(height: 12, color: theme.primaryColor),
@@ -124,7 +128,6 @@ class _KonsultasiPageState extends State<KonsultasiPage>
                             Icon(Icons.search, color: theme.primaryColor),
                             const SizedBox(width: 4),
                             Expanded(
-                              // TODO: BUG Search
                               child: TextField(
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
@@ -133,6 +136,7 @@ class _KonsultasiPageState extends State<KonsultasiPage>
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400,
                                     color: const Color(0xFF606060),
+                                    height: 0.12,
                                   ),
                                   focusedBorder: InputBorder.none,
                                   enabledBorder: InputBorder.none,
@@ -141,7 +145,8 @@ class _KonsultasiPageState extends State<KonsultasiPage>
                                   textStyle: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
-                                      color: Color(0xFF0A0A0A)),
+                                      color: Color(0xFF0A0A0A),
+                                      height: 0.12,),
                                 ),
                                 obscureText: false,
                                 enableSuggestions: true,
@@ -198,7 +203,10 @@ class _KonsultasiPageState extends State<KonsultasiPage>
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 11),
-                  child: Text("Consultation Registered"),
+                  child: Text(
+                    "Consultation Registered",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ]),
           Expanded(
