@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upgrading/models/organization_model.dart';
 import 'package:upgrading/views/coming_soon_page.dart';
+import 'package:upgrading/views/community/community_chat_page.dart';
 import 'package:upgrading/widgets/faq_card.dart';
 import 'package:upgrading/widgets/organisasi_card.dart';
 import 'package:upgrading/widgets/review_card.dart';
 
 import '../../../core/constant.dart';
+import '../../community/community_page.dart';
 
 class DetailOrganisasiPage extends StatefulWidget {
   static const routeName = "/detail-organisasi";
@@ -445,7 +447,12 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
                   ),
                   onPressed: () {
                     Navigator.of(context)
-                        .pushReplacementNamed(ComingSoonPage.routeName);
+                        .pushNamed(CommunityChatPage.routeName, arguments: {
+                          'groupId': organisasi.uid,
+                          'imageUrl': organisasi.logoUrl,
+                          'groupName': organisasi.nama,
+                          'type': 'organisasi'
+                        });
                   },
                   child: Text("Join the Community",
                       style: GoogleFonts.poppins(
@@ -468,7 +475,8 @@ class _DetailOrganisasiPageState extends State<DetailOrganisasiPage>
                     backgroundColor: theme.primaryColor,
                   ),
                   onPressed: () {
-                    Navigator.of(context)
+                    
+                        Navigator.of(context)
                         .pushReplacementNamed(ComingSoonPage.routeName);
                   },
                   child: Text("Register Now",

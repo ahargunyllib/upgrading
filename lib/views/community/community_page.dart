@@ -1,8 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:upgrading/views/community/community_chat_page.dart';
 import 'package:upgrading/widgets/custom_card.dart';
 
 import '../../../core/constant.dart';
+import '../../models/scholarships_model.dart';
+import '../../services/scholarship_service.dart';
+import '../../services/user_service.dart';
+import '../../widgets/custom_item.dart';
 
 class CommunityPage extends StatefulWidget {
   static const routeName = "/community";
@@ -39,7 +45,7 @@ class _CommunityPageState extends State<CommunityPage>
           },
         ),
         centerTitle: true,
-        title: Text("Konsultasi",
+        title: Text("Community",
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
                 color: Colors.white,
@@ -195,11 +201,67 @@ class _CommunityPageState extends State<CommunityPage>
                   ),
                 ),
               ]),
-          Expanded(
-            child: TabBarView(controller: _tabController, children: const [
+          Flexible(
+            fit: FlexFit.loose,
+            child: TabBarView(controller: _tabController, children: [
               Padding(
-                padding: EdgeInsets.all(16),
-                child: Center(),
+                padding: const EdgeInsets.all(16),
+                child: FutureBuilder(
+                    future:
+                        UserService(uid: FirebaseAuth.instance.currentUser!.uid)
+                            .getAllChatRooms(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        List<String> groupIds = [];
+                        (snapshot.data!.data()
+                                as Map<String, dynamic>)['beasiswa_group_chats']
+                            .forEach((chatRoomId) {
+                          groupIds.add(chatRoomId);
+                        });
+
+                        return ListView.builder(
+                            itemCount: groupIds.length,
+                            itemBuilder: (context, index) {
+                              return FutureBuilder(
+                                  future: ScholarshipsService()
+                                      .getScholarship(groupIds[index]),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasData) {
+                                      Beasiswa beasiswa = Beasiswa.fromMap(
+                                          snapshot.data!.data()
+                                              as Map<String, dynamic>,
+                                          snapshot.data!.id);
+                                      return Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 8),
+                                        child: InkWell(
+                                            onTap: () {
+                                              Navigator.of(context).pushNamed(
+                                                  CommunityChatPage.routeName,
+                                                  arguments: {
+                                                    'groupId': beasiswa.uid,
+                                                    'imageUrl':
+                                                        beasiswa.logoUrl,
+                                                    'groupName': beasiswa.nama,
+                                                    'type': 'beasiswa'
+                                                  });
+                                            },
+                                            child: CustomItem(
+                                                imageUrl: beasiswa.logoUrl,
+                                                title: beasiswa.nama,
+                                                subtitle:
+                                                    beasiswa.penyelenggara)),
+                                      );
+                                    } else {
+                                      return Container();
+                                    }
+                                  });
+                            });
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }),
               ),
               Padding(
                 padding: EdgeInsets.all(16.0),

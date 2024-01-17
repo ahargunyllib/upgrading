@@ -198,7 +198,7 @@ class _KonsultasiPageState extends State<KonsultasiPage>
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 11),
-                  child: Text("consulation Registered"),
+                  child: Text("Consultation Registered"),
                 ),
               ]),
           Expanded(

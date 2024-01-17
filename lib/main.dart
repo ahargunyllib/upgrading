@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:upgrading/firebase_options.dart';
 import 'package:upgrading/views/auth/identity_form_page.dart';
 import 'package:upgrading/views/coming_soon_page.dart';
+import 'package:upgrading/views/community/community_chat_page.dart';
 import 'package:upgrading/views/community/community_page.dart';
 import 'package:upgrading/views/home/home_page.dart';
 import 'package:upgrading/views/search/beasiswa/beasiswa_page.dart';
@@ -75,6 +76,7 @@ class _MainAppState extends State<MainApp> {
         HomePage.routeName: (context) => const HomePage(),
         SearchPage.routeName: (context) => const SearchPage(),
         CommunityPage.routeName: (context) => const CommunityPage(),
+        CommunityChatPage.routeName: (context) => const CommunityChatPage(),
         UpgradingPage.routeName: (context) => const UpgradingPage(),
         ProfilePage.routeName: (context) => const ProfilePage(),
         ComingSoonPage.routeName: (context) => const ComingSoonPage(),
