@@ -87,7 +87,7 @@ class SuccessSessionPaymentPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Pembayaran Berhasil",
+                            Text("Payment success",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.poppins(
                                     color: Colors.white,
@@ -168,7 +168,7 @@ class SuccessSessionPaymentPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text("$sessionCounts Sesi",
+                                Text("$sessionCounts Session",
                                     style: GoogleFonts.poppins(
                                         fontSize: 10,
                                         color: Colors.white,
@@ -206,7 +206,7 @@ class SuccessSessionPaymentPage extends StatelessWidget {
                                 )),
                             const SizedBox(height: 16),
                             Text(
-                                "Silakan membuka halaman \"Daftar Konsultasi\" untuk memulai sesi konsultasi Anda",
+                                "Please open the \"Consultation Registered\" page to start your consultation session",
                                 textAlign: TextAlign.center,
                                 softWrap: true,
                                 style: GoogleFonts.poppins(
@@ -231,7 +231,7 @@ class SuccessSessionPaymentPage extends StatelessWidget {
                       backgroundColor: theme.primaryColor,
                     ),
                     child: Text(
-                      "Konsultasi Sekarang",
+                      "Start consultation session",
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: 12,

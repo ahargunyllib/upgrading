@@ -99,7 +99,7 @@ class _KonsultasiPageState extends State<KonsultasiPage>
             color: theme.primaryColor,
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              child: CustomCard(imagePath: "assets/images/consultation-icon.png", title: "Educational Scholarships", subtitle: "Explore various scholarships and find what works for you"),
+              child: CustomCard(imagePath: "assets/images/consultation-icon.png", title: "Consultation", subtitle: "Consultation with awardee of scholarships or organizational membership that you want"),
             ),
           ),
           Container(height: 12, color: theme.primaryColor),
@@ -192,13 +192,13 @@ class _KonsultasiPageState extends State<KonsultasiPage>
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 11),
                   child: Text(
-                    "Konsultan Populer",
+                    "Populer Consultant",
                     textAlign: TextAlign.center,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 11),
-                  child: Text("Daftar Konsultasi"),
+                  child: Text("consulation Registered"),
                 ),
               ]),
           Expanded(

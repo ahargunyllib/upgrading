@@ -86,7 +86,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
           },
         ),
         centerTitle: true,
-        title: Text("Pembayaran",
+        title: Text("Payment",
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
                 color: Colors.white,
@@ -113,7 +113,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Jumlah Sesi",
+                      Text("Number of Sessions",
                           style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontSize: 16,
@@ -180,7 +180,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                             ),
                           ),
                           const SizedBox(width: 12),
-                          Text("sesi*",
+                          Text("session*",
                               style: GoogleFonts.poppins(
                                   color: Colors.white,
                                   fontSize: 14,
@@ -205,7 +205,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '*1 sesi= 30 menit',
+                            '*1 session = 30 minutes',
                             style: GoogleFonts.poppins(
                                 color: Colors.white,
                                 fontSize: 10,
@@ -238,7 +238,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Metode Pembayaran",
+                            Text("Payment method",
                                 style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontSize: 16,
@@ -540,7 +540,7 @@ class _SessionPaymentPageState extends State<SessionPaymentPage> {
                           'sessionCounts': sessionCounts
                         });
                   },
-                  child: Text("Bayar",
+                  child: Text("Pay",
                       style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontSize: 16,

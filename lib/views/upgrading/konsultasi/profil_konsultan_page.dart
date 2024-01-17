@@ -28,7 +28,7 @@ class ProfilKonsultanPage extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        title: Text("Profil Konsultan",
+        title: Text("Consultant Profile",
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
                 color: Colors.white,
@@ -219,7 +219,7 @@ class ProfilKonsultanPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Tentang Konsultan",
+                          Text("About Consultant",
                               style: GoogleFonts.poppins(
                                   color: theme.primaryColor,
                                   fontSize: 10,
@@ -267,7 +267,7 @@ class ProfilKonsultanPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Pendidikan",
+                          Text("Education",
                               style: GoogleFonts.poppins(
                                   color: theme.primaryColor,
                                   fontSize: 10,
@@ -380,7 +380,7 @@ class ProfilKonsultanPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Pengalaman",
+                          Text("Experience",
                               style: GoogleFonts.poppins(
                                   color: theme.primaryColor,
                                   fontSize: 10,
@@ -483,7 +483,7 @@ class ProfilKonsultanPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Biaya Konsultasi",
+                          Text("Consultation Fee",
                               style: GoogleFonts.poppins(
                                   fontSize: 12,
                                   color: theme.primaryColor,
@@ -510,7 +510,7 @@ class ProfilKonsultanPage extends StatelessWidget {
                             backgroundColor: theme.primaryColor,
                           ),
                           child: Text(
-                            "Konsultasi Sekarang",
+                            "Consult Now",
                             style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontSize: 12,

@@ -183,7 +183,7 @@ class _ChatPageState extends State<ChatPage> {
                                 decoration: InputDecoration(
                                   alignLabelWithHint: true,
                                   border: InputBorder.none,
-                                  hintText: "Tuliskan pesanmu",
+                                  hintText: "Write a message",
                                   hintStyle: GoogleFonts.poppins(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
