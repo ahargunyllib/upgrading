@@ -90,7 +90,11 @@ class HomeVideoPersiapanPage extends StatelessWidget {
               color: theme.primaryColor,
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
-                child: CustomCard(imagePath: "assets/images/video-preparation-icon.png", title: "Preparation Video", subtitle: "Access video content of scholarship preparation or organization that you want"),
+                child: CustomCard(
+                    imagePath: "assets/images/video-preparation-icon.png",
+                    title: "Preparation Video",
+                    subtitle:
+                        "Access video content of scholarship preparation or organization that you want"),
               ),
             ),
             Container(height: 12, color: theme.primaryColor),
@@ -334,7 +338,11 @@ class HomeVideoPersiapanPage extends StatelessWidget {
                           element.data() as Map<String, dynamic>, element.id);
                       videos.add(video);
                     });
-                    return InkWell(onTap: () => Navigator.pushNamed(context, ListVideoPage.routeName, arguments: videos[0]),child: VideoCard(video: videos[0]));
+                    return InkWell(
+                        onTap: () => Navigator.pushNamed(
+                            context, ListVideoPage.routeName,
+                            arguments: videos[1]),
+                        child: VideoCard(video: videos[1]));
                   } else {
                     return const Center(child: CircularProgressIndicator());
                   }

@@ -33,11 +33,12 @@ class VideoCard extends StatelessWidget {
                         color: Colors.transparent,
                         width: double.infinity,
                         child: ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(16),
-                                topRight: Radius.circular(16)),
-                            child: Image.network(snapshot.data!,
-                                fit: BoxFit.cover)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(16)),
+                            child: Image.network(
+                              snapshot.data!,
+                              fit: BoxFit.cover,
+                            )),
                       );
                     }
                     return Container();

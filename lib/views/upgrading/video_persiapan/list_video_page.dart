@@ -7,7 +7,7 @@ import '../../../core/constant.dart';
 import '../../../widgets/video_card.dart';
 
 class ListVideoPage extends StatelessWidget {
-  static const routeName = 'list-video';
+  static const routeName = '/list-video';
   const ListVideoPage({super.key});
 
   @override
@@ -157,14 +157,266 @@ class ListVideoPage extends StatelessWidget {
                         ),
                       ),
                       subtitle: Text(
-                        'Lorem ipsum dolor sit amet',
+                        'The Basics of Essay Writing',
                         style: GoogleFonts.poppins(
                           color: theme.primaryColor,
                           fontSize: 10,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                    )
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.pushNamed(context, ComingSoonPage.routeName);
+                      },
+                      contentPadding: EdgeInsets.zero,
+                      leading: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: ShapeDecoration(
+                          color: theme.primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            '2',
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      title: Text(
+                        'Episode 2',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Understanding Essay Prompts',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.pushNamed(context, ComingSoonPage.routeName);
+                      },
+                      contentPadding: EdgeInsets.zero,
+                      leading: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: ShapeDecoration(
+                          color: theme.primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            '3',
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      title: Text(
+                        'Episode 3',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Research Techniques for Essay Writing',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.pushNamed(context, ComingSoonPage.routeName);
+                      },
+                      contentPadding: EdgeInsets.zero,
+                      leading: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: ShapeDecoration(
+                          color: theme.primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            '4',
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      title: Text(
+                        'Episode 4',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Crafting a Strong Thesis Statement',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.pushNamed(context, ComingSoonPage.routeName);
+                      },
+                      contentPadding: EdgeInsets.zero,
+                      leading: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: ShapeDecoration(
+                          color: theme.primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            '5',
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      title: Text(
+                        'Episode 5',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Building Essay: Introduction, Body, and Conclusion',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.pushNamed(context, ComingSoonPage.routeName);
+                      },
+                      contentPadding: EdgeInsets.zero,
+                      leading: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: ShapeDecoration(
+                          color: theme.primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            '6',
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      title: Text(
+                        'Episode 6',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Revising and Editing Your Essay',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.pushNamed(context, ComingSoonPage.routeName);
+                      },
+                      contentPadding: EdgeInsets.zero,
+                      leading: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: ShapeDecoration(
+                          color: theme.primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            '7',
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      title: Text(
+                        'Episode 7',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Avoiding Common Essay Writing Mistakes',
+                        style: GoogleFonts.poppins(
+                          color: theme.primaryColor,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
                   ]),
                 ),
               )),

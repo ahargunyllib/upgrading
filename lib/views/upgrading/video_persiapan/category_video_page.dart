@@ -82,74 +82,74 @@ class CategoryVideoPage extends StatelessWidget {
             ],
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                color: theme.primaryColor,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Row(children: [
-                    Expanded(
-                      child: Container(
-                          height: 48,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: Colors.white,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.search, color: theme.primaryColor),
-                                const SizedBox(width: 4),
-                                Expanded(
-                                  // TODO: BUG Search
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: "Search",
-                                      hintStyle: GoogleFonts.poppins(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: const Color(0xFF606060),
-                                      ),
-                                      focusedBorder: InputBorder.none,
-                                      enabledBorder: InputBorder.none,
+        body: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              color: theme.primaryColor,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(children: [
+                  Expanded(
+                    child: Container(
+                        height: 48,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: Colors.white,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.search, color: theme.primaryColor),
+                              const SizedBox(width: 4),
+                              Expanded(
+                                // TODO: BUG Search
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "Search",
+                                    hintStyle: GoogleFonts.poppins(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: const Color(0xFF606060),
                                     ),
-                                    style: GoogleFonts.poppins(
-                                      textStyle: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                          color: Color(0xFF0A0A0A)),
-                                    ),
-                                    obscureText: false,
-                                    enableSuggestions: true,
-                                    autocorrect: true,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
                                   ),
-                                )
-                              ],
-                            ),
-                          )),
-                    ),
-                  ]),
-                ),
-              ),
-              Container(
-                height: 20,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(16),
-                    bottomRight: Radius.circular(16),
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xFF0A0A0A)),
+                                  ),
+                                  obscureText: false,
+                                  enableSuggestions: true,
+                                  autocorrect: true,
+                                ),
+                              )
+                            ],
+                          ),
+                        )),
                   ),
-                  color: theme.primaryColor,
-                ),
+                ]),
               ),
-              const SizedBox(height: 12),
-              FutureBuilder(
+            ),
+            Container(
+              height: 20,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(16),
+                  bottomRight: Radius.circular(16),
+                ),
+                color: theme.primaryColor,
+              ),
+            ),
+            const SizedBox(height: 12),
+            Expanded(
+              child: FutureBuilder(
                   future: VideoService().getVideos(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
@@ -160,7 +160,18 @@ class CategoryVideoPage extends StatelessWidget {
                         videos.add(video);
                       });
                       if (topic == "Essay Writing") {
-                        return InkWell(onTap: () => Navigator.pushNamed(context, ListVideoPage.routeName, arguments: videos[0]),child: VideoCard(video: videos[0]));
+                        return ListView.builder(
+                            itemCount: videos.length,
+                            itemBuilder: (context, index) {
+                              return InkWell(
+                                  onTap: () => Navigator.pushNamed(
+                                      context, ListVideoPage.routeName,
+                                      arguments: videos[index]),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(bottom: 16),
+                                    child: VideoCard(video: videos[index]),
+                                  ));
+                            });
                       } else {
                         return Column(
                           children: [
@@ -186,8 +197,8 @@ class CategoryVideoPage extends StatelessWidget {
                       return const Center(child: CircularProgressIndicator());
                     }
                   }),
-            ],
-          ),
+            ),
+          ],
         ));
   }
 }

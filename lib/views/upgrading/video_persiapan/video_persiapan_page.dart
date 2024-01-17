@@ -22,50 +22,50 @@ class VideoPersiapanMainWidget extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       bottomNavigationBar: Theme(
-          data: ThemeData(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-          ),
-          child: BottomNavigationBar(
-            currentIndex: 3,
-            onTap: (index) {
-              Navigator.pushNamed(context, pages[index]);
-            },
-            type: BottomNavigationBarType.fixed,
-            selectedIconTheme: IconThemeData(color: theme.primaryColor),
-            selectedItemColor: theme.primaryColor,
-            selectedLabelStyle: GoogleFonts.poppins(
-                color: theme.primaryColor, fontWeight: FontWeight.w400),
-            selectedFontSize: 10,
-            unselectedIconTheme: IconThemeData(color: theme.focusColor),
-            unselectedItemColor: theme.focusColor,
-            unselectedLabelStyle: GoogleFonts.poppins(
-                color: theme.primaryColor, fontWeight: FontWeight.w400),
-            unselectedFontSize: 10,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: 'Search',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.people_outline),
-                label: 'Community',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.create_new_folder_outlined),
-                label: 'Upgrading',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person_2_outlined),
-                label: 'Profile',
-              ),
-            ],
-          ),
+        data: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
         ),
+        child: BottomNavigationBar(
+          currentIndex: 3,
+          onTap: (index) {
+            Navigator.pushNamed(context, pages[index]);
+          },
+          type: BottomNavigationBarType.fixed,
+          selectedIconTheme: IconThemeData(color: theme.primaryColor),
+          selectedItemColor: theme.primaryColor,
+          selectedLabelStyle: GoogleFonts.poppins(
+              color: theme.primaryColor, fontWeight: FontWeight.w400),
+          selectedFontSize: 10,
+          unselectedIconTheme: IconThemeData(color: theme.focusColor),
+          unselectedItemColor: theme.focusColor,
+          unselectedLabelStyle: GoogleFonts.poppins(
+              color: theme.primaryColor, fontWeight: FontWeight.w400),
+          unselectedFontSize: 10,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people_outline),
+              label: 'Community',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.create_new_folder_outlined),
+              label: 'Upgrading',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_2_outlined),
+              label: 'Profile',
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -83,9 +83,11 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset("assets/images/video-preparation-icon.png"),
+                          Image.asset(
+                              "assets/images/video-preparation-icon.png"),
                           const SizedBox(height: 8),
                           Text("Access premium features",
+                              textAlign: TextAlign.center,
                               style: GoogleFonts.poppins(
                                   color: Colors.white,
                                   fontSize: 24,
@@ -123,7 +125,8 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                                 const Icon(Icons.check_circle,
                                     color: Colors.white),
                                 const SizedBox(width: 8),
-                                Text("Access interview preparation video content",
+                                Text(
+                                    "Access interview preparation video content",
                                     style: GoogleFonts.poppins(
                                         color: Colors.white,
                                         fontSize: 10,
@@ -137,7 +140,8 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                                 const Icon(Icons.check_circle,
                                     color: Colors.white),
                                 const SizedBox(width: 8),
-                                Text("Access English language learning video content",
+                                Text(
+                                    "Access English language learning video content",
                                     style: GoogleFonts.poppins(
                                         color: Colors.white,
                                         fontSize: 10,
@@ -151,7 +155,8 @@ class VideoPersiapanMainWidget extends StatelessWidget {
                                 const Icon(Icons.check_circle,
                                     color: Colors.white),
                                 const SizedBox(width: 8),
-                                Text("Access public speaking learning video content",
+                                Text(
+                                    "Access public speaking learning video content",
                                     style: GoogleFonts.poppins(
                                         color: Colors.white,
                                         fontSize: 10,
