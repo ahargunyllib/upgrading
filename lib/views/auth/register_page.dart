@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:upgrading/views/auth/identity_form_page.dart';
 
 import '../../core/helper.dart';
 import '../../services/auth_service.dart';
@@ -22,7 +23,6 @@ class _RegisterPageState extends State<RegisterPage> {
   bool agreeToTerms = false;
   bool _isLoading = false;
   final formKey = GlobalKey<FormState>();
-  String fullName = "";
   String email = "";
   String password = "";
   String confirmPassword = "";
@@ -32,6 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
+    final height = size.height >= 700 ? size.height : 700.toDouble();
 
     return Scaffold(
         backgroundColor: theme.primaryColor,
@@ -43,20 +44,24 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: SingleChildScrollView(
                   child: Form(
                     key: formKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Center(
-                          child: Padding(
-                              padding: const EdgeInsets.only(top: 16.0),
-                              child:
-                                  Image.asset("assets/images/logo-icon.png")),
-                        ),
-                        const SizedBox(height: 77),
-                        _buildWelcomeTexts(),
-                        const SizedBox(height: 48),
-                        _buildForm(size, theme),
-                      ],
+                    child: SizedBox(
+                      height: height,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Center(
+                            child: Padding(
+                                padding: const EdgeInsets.only(top: 16.0),
+                                child:
+                                    Image.asset("assets/images/logo-icon.png")),
+                          ),
+                          const SizedBox(height: 16),
+                          _buildWelcomeTexts(),
+                          const SizedBox(height: 16),
+                          _buildForm(size, theme),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -120,8 +125,6 @@ class _RegisterPageState extends State<RegisterPage> {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               children: [
-                _buildFullNameFormWidget(),
-                const SizedBox(height: 16),
                 _buildEmailFormWidget(),
                 const SizedBox(height: 16),
                 _buildPasswordFormWidget(),
@@ -137,49 +140,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 _buildGoogleSignUpButton(theme),
                 const SizedBox(height: 16),
                 _buildLoginPrompt(theme),
-                const SizedBox(height: 69),
+                const SizedBox(height: 16),
               ],
             ),
           ),
         ),
       )
     ]);
-  }
-
-  Widget _buildFullNameFormWidget() {
-    return Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            color: const Color(0xFFAAC0CD),
-          ),
-        ),
-        child: TextFormField(
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: "Full Name",
-            hintStyle: GoogleFonts.poppins(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: const Color(0xFF9E9E9E),
-            ),
-            contentPadding: const EdgeInsets.only(left: 16),
-          ),
-          style: GoogleFonts.poppins(
-            textStyle: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Color(0xFF0A0A0A)),
-          ),
-          obscureText: false,
-          enableSuggestions: true,
-          autocorrect: true,
-          onChanged: (val) {
-            setState(() {
-              fullName = val;
-            });
-          },
-        ));
   }
 
   Widget _buildEmailFormWidget() {
@@ -437,21 +404,8 @@ class _RegisterPageState extends State<RegisterPage> {
   register() async {
     if (formKey.currentState!.validate()) {
       if (agreeToTerms) {
-        setState(() {
-          _isLoading = true;
-        });
-        await authService.signUp(fullName, email, password).then((value) async {
-          if (value == true) {
-            await Helper.saveUserLoggedInStatus(true);
-            await Helper.saveUserEmail(email);
-            await Helper.saveUserName(fullName);
-            // ignore: use_build_context_synchronously
-            Navigator.pushReplacementNamed(context, "/login");
-          } else {
-            showSnackBar(context, Colors.red, value);
-            setState(() => _isLoading = false);
-          }
-        });
+        Navigator.pushNamed(context, IdentityFormPage.routeName,
+            arguments: {'email': email, 'password': password});
       } else {
         showSnackBar(context, Colors.red,
             "You need to agree with the terms of service and privacy policy");

@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:upgrading/firebase_options.dart';
+import 'package:upgrading/views/auth/identity_form_page.dart';
 import 'package:upgrading/views/coming_soon_page.dart';
 import 'package:upgrading/views/community/community_page.dart';
 import 'package:upgrading/views/home/home_page.dart';
@@ -69,6 +70,7 @@ class _MainAppState extends State<MainApp> {
       initialRoute: _isSignedIn ? HomePage.routeName : RegisterPage.routeName,
       routes: {
         RegisterPage.routeName: (context) => const RegisterPage(),
+        IdentityFormPage.routeName: (context) => const IdentityFormPage(),
         LoginPage.routeName: (context) => const LoginPage(),
         HomePage.routeName: (context) => const HomePage(),
         SearchPage.routeName: (context) => const SearchPage(),

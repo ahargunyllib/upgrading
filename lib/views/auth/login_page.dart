@@ -29,6 +29,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
+    final height = size.height >= 660 ? size.height : 660.toDouble();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -38,23 +39,20 @@ class _LoginPageState extends State<LoginPage> {
           : SafeArea(
               child: Form(
                 key: formKey,
-                child: Expanded(
+                child: SizedBox(
+                  height: height,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Center(
-                            child: Padding(
-                                padding: const EdgeInsets.only(top: 16.0),
-                                child:
-                                    Image.asset("assets/images/logo-icon.png")),
-                          ),
-                          _buildWelcomeTexts(),
-                        ],
+                      Center(
+                        child: Padding(
+                            padding: const EdgeInsets.only(top: 16.0),
+                            child: Image.asset("assets/images/logo-icon.png")),
                       ),
+                      const SizedBox(height: 16),
+                      _buildWelcomeTexts(),
+                      const SizedBox(height: 16),
                       _buildForm(size, theme, context),
                     ],
                   ),
@@ -66,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildWelcomeTexts() {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, top: 77.0),
+      padding: const EdgeInsets.only(left: 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -136,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                   _buildGoogleSignUpButton(theme),
                   const SizedBox(height: 16),
                   _buildSignUpPrompt(theme, context),
-                  const SizedBox(height: 48),
+                  const SizedBox(height: 16),
                 ],
               ),
             ),

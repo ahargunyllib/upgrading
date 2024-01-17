@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../views/community/community_page.dart';
 import '../views/home/home_page.dart';
 import '../views/profile/profile_page.dart';
@@ -64,4 +66,31 @@ const freeFeatures = [
     "imagePath": "assets/images/consultation-icon.png",
     "routeName": "/konsultasi"
   },
+];
+
+List<DropdownMenuItem<String>> universityItems = const [
+  DropdownMenuItem(
+      value: "Brawijaya University", child: Text("Brawijaya University")),
+  DropdownMenuItem(
+      value: "Indonesia University", child: Text("Indonesia University")),
+  DropdownMenuItem(
+      value: "Gadjah Mada University", child: Text("Gadjah Mada University")),
+];
+
+List<DropdownMenuItem<String>> majorItems = const [
+  DropdownMenuItem(
+      value: "Computer Science", child: Text("Computer Science")),
+  DropdownMenuItem(
+      value: "Information System", child: Text("Information System")),
+  DropdownMenuItem(
+      value: "Pharmacy", child: Text("Pharmacy")),
+];
+
+List<DropdownMenuItem<String>> classItems = const [
+  DropdownMenuItem(
+      value: "2023", child: Text("2023")),
+  DropdownMenuItem(
+      value: "2022", child: Text("2022")),
+  DropdownMenuItem(
+      value: "2021", child: Text("2021")),
 ];
