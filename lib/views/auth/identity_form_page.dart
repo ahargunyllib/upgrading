@@ -325,7 +325,51 @@ class _IdentityFormPageState extends State<IdentityFormPage> {
         await Helper.saveUserEmail(email);
         await Helper.saveUserName(fullName);
         // ignore: use_build_context_synchronously
-        Navigator.pushReplacementNamed(context, "/login");
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                backgroundColor: const Color(0xFF00416A),
+                icon: Image.asset("assets/images/success-login-icon.png"),
+                title: Text(
+                  'Akun berhasil dibuat',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                actions: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: 30,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, "/login");
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                        backgroundColor: Colors.white,
+                      ),
+                      child: Text(
+                        'Login',
+                        style: GoogleFonts.poppins(
+                          color: const Color(0xFF00416A),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            });
       } else {
         showSnackBar(context, Colors.red, value);
         setState(() => _isLoading = false);
