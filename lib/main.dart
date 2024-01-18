@@ -7,6 +7,7 @@ import 'package:upgrading/views/coming_soon_page.dart';
 import 'package:upgrading/views/community/community_chat_page.dart';
 import 'package:upgrading/views/community/community_page.dart';
 import 'package:upgrading/views/home/home_page.dart';
+import 'package:upgrading/views/profile/setting_page.dart';
 import 'package:upgrading/views/search/beasiswa/beasiswa_page.dart';
 import 'package:upgrading/views/search/beasiswa/detail_beasiswa_page.dart';
 import 'package:upgrading/views/upgrading/konsultasi/chat_page.dart';
@@ -79,6 +80,7 @@ class _MainAppState extends State<MainApp> {
         CommunityChatPage.routeName: (context) => const CommunityChatPage(),
         UpgradingPage.routeName: (context) => const UpgradingPage(),
         ProfilePage.routeName: (context) => const ProfilePage(),
+        SettingPage.routeName: (context) => const SettingPage(),
         ComingSoonPage.routeName: (context) => const ComingSoonPage(),
         VideoPersiapanPage.routeName: (context) => const VideoPersiapanPage(),
         KonsultasiPage.routeName: (context) => const KonsultasiPage(),

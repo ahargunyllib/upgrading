@@ -16,7 +16,7 @@ class UserService {
       "chats": [],
       "beasiswa_group_chats": [],
       "organisasi_group_chats": [],
-      "profilePic": "",
+      "profilePic": "assets/images/dummy-user-icon.png",
       "uid": uid
     });
   }

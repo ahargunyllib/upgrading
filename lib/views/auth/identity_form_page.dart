@@ -337,7 +337,7 @@ class _IdentityFormPageState extends State<IdentityFormPage> {
                 backgroundColor: const Color(0xFF00416A),
                 icon: Image.asset("assets/images/success-login-icon.png"),
                 title: Text(
-                  'Akun berhasil dibuat',
+                  'Account Created',
                   style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 16,
