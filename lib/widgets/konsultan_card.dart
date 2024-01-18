@@ -99,21 +99,24 @@ class KonsultanCard extends StatelessWidget {
                       ),
                     )),
                 const SizedBox(width: 8),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(mentor.beasiswa.nama,
-                        style: GoogleFonts.poppins(
-                            fontSize: 10,
-                            color: theme.primaryColor,
-                            fontWeight: FontWeight.w700)),
-                    Text(mentor.beasiswa.penyelenggara,
-                        style: GoogleFonts.poppins(
-                            fontSize: 10,
-                            color: theme.primaryColor,
-                            fontWeight: FontWeight.w400))
-                  ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(mentor.beasiswa.nama,
+                          softWrap: true,
+                          style: GoogleFonts.poppins(
+                              fontSize: 10,
+                              color: theme.primaryColor,
+                              fontWeight: FontWeight.w700)),
+                      Text(mentor.beasiswa.penyelenggara,
+                          style: GoogleFonts.poppins(
+                              fontSize: 10,
+                              color: theme.primaryColor,
+                              fontWeight: FontWeight.w400))
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -125,7 +128,6 @@ class KonsultanCard extends StatelessWidget {
                     fontWeight: FontWeight.w700)),
             const SizedBox(height: 12),
             SizedBox(
-              width: 160,
               height: 30,
               child: ElevatedButton(
                 onPressed: () {
@@ -138,7 +140,7 @@ class KonsultanCard extends StatelessWidget {
                   backgroundColor: theme.primaryColor,
                 ),
                 child: Text(
-                  "Selengkapnya ",
+                  "More",
                   style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 12,

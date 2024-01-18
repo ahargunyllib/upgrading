@@ -145,21 +145,25 @@ class SuccessSessionPaymentPage extends StatelessWidget {
                                       ),
                                     )),
                                 const SizedBox(width: 8),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(mentor.beasiswa.nama,
-                                        style: GoogleFonts.poppins(
-                                            fontSize: 10,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w700)),
-                                    Text(mentor.beasiswa.penyelenggara,
-                                        style: GoogleFonts.poppins(
-                                            fontSize: 10,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400)),
-                                  ],
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(mentor.beasiswa.nama,
+                                          softWrap: true,
+                                          style: GoogleFonts.poppins(
+                                              fontSize: 10,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w700)),
+                                      Text(mentor.beasiswa.penyelenggara,
+                                          style: GoogleFonts.poppins(
+                                              fontSize: 10,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w400)),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
